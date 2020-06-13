@@ -1,22 +1,25 @@
 const fs = require('fs');
 
+const data = [];
 const lyon = require('./input-data/lyon/lyon.json').features;
 lyon.forEach((feature) => {
    feature.properties = {
       covid: feature.properties.anneelivra === 2020,
       name: feature.properties.nom,
+      city: 'lyon',
    };
+   data.push(feature);
 });
 
-const paris = [];
 const parisNormal = require('./input-data/paris/paris-normal.json');
 parisNormal.features.forEach((feature) => {
    feature.properties = {
       covid: false,
       name: feature.properties.voie,
+      city: 'paris',
    };
    if (feature.geometry) {
-      paris.push(feature);
+      data.push(feature);
    } else {
       console.log(feature);
    }
@@ -27,18 +30,19 @@ parisCovid.features.forEach((feature) => {
    feature.properties = {
       covid: true,
       name: feature.properties.route,
+      city: 'aris',
    };
-   paris.push(feature);
+   data.push(feature);
 });
 
-const nantes = [];
 const nantesNormal = require('./input-data/nantes/nantes-normal.json');
 nantesNormal.features.forEach((feature) => {
    feature.properties = {
       covid: false,
       name: feature.properties.nom,
+      city: 'nantes',
    };
-   nantes.push(feature);
+   data.push(feature);
 });
 
 const nantesCovid = require('./input-data/nantes/nantes-covid.json');
@@ -46,18 +50,11 @@ nantesCovid.features.forEach((feature) => {
    feature.properties = {
       covid: true,
       name: feature.properties.nom,
+      city: 'nantes',
    };
-   nantes.push(feature);
+   data.push(feature);
 });
 
-fs.writeFile('../src/data/lyon.json', JSON.stringify(lyon, null, 3), () =>
-   console.log('print lyon')
-);
-
-fs.writeFile('../src/data/paris.json', JSON.stringify(paris, null, 3), () =>
-   console.log('print paris')
-);
-
-fs.writeFile('../src/data/nantes.json', JSON.stringify(nantes, null, 3), () =>
-   console.log('print nantes')
+fs.writeFile('../src/data/data.json', JSON.stringify(data, null, 3), () =>
+   console.log('print data')
 );

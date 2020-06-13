@@ -1,13 +1,12 @@
 import React, { useRef, useEffect, useLayoutEffect, useState } from 'react';
-import { platform, colors } from '../../config';
+import { platform, colors, locations } from '../../config';
 import stylePath from './style.yaml';
 import Logo from '../../static/Logo';
 import './Map.scss';
 import Tooltip from '../Tooltip';
-
 const { H } = window;
 
-const Map = ({ data }) => {
+const Map = ({ data, city }) => {
    const [tooltip, setTooltip] = useState({
       visible: false,
       x: 0,
@@ -36,13 +35,19 @@ const Map = ({ data }) => {
       window.addEventListener('resize', () =>
          map.current.getViewPort().resize()
       );
-      new H.mapevents.Behavior(new H.mapevents.MapEvents(map.current));
+      // new H.mapevents.Behavior(new H.mapevents.MapEvents(map.current));
       // setStyle();
       map.current.getEngine().setAnimationDuration(1000);
       setStyle();
 
       addObjects();
    }, []);
+
+   useEffect(() => {
+      // removeObjects();
+      // addObjects();
+      map.current.setCenter(locations[city].coordinates);
+   }, [city]);
 
    async function setStyle() {
       const style = await fetch(stylePath).then((res) => res.text());
@@ -51,7 +56,7 @@ const Map = ({ data }) => {
    }
 
    function addObjects() {
-      data.paris.forEach(({ geometry, properties }) => {
+      data.forEach(({ geometry, properties }) => {
          const lineString = new H.geo.LineString();
          if (geometry.type === 'LineString') {
             geometry.coordinates.forEach(([lng, lat]) => {
@@ -113,8 +118,8 @@ const Map = ({ data }) => {
    }
 
    function removeObjects() {
-      root.getObjects().forEach((obj) => {
-         root.removeObject(obj);
+      map.current.getObjects().forEach((obj) => {
+         map.current.removeObject(obj);
       });
    }
    return (

@@ -1,23 +1,37 @@
 import React, { useState } from 'react';
 //Style
 import './style/app.scss';
-import lyonData from './data/lyon.json';
-import nantesData from './data/nantes.json';
-import parisData from './data/paris.json';
+import data from './data/data.json';
+import Sidebar from './components/Sidebar';
 
 //Components
 import Map from './components/Map/Map';
 
-const data = {
-   lyon: lyonData,
-   nantes: nantesData,
-   paris: parisData,
-};
+import {
+   ReactCompareSlider,
+   ReactCompareSliderImage,
+} from 'react-compare-slider';
 
+import { locations } from './config';
 function App() {
+   const [city, setCity] = useState(Object.keys(locations)[0]);
+   console.log(city);
+
+   const dataToUse = data;
    return (
       <div className="app">
-         <Map data={data} />
+         <Sidebar setCity={setCity} />
+
+         <ReactCompareSlider
+            style={{ height: '100%', flex: 1 }}
+            itemOne={
+               <Map
+                  city={city}
+                  data={dataToUse.filter((x) => !x.properties.covid)}
+               />
+            }
+            itemTwo={<Map city={city} data={dataToUse} />}
+         />
       </div>
    );
 }
