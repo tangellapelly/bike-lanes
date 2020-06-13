@@ -1,0 +1,36 @@
+@import '../style/global.scss';
+.tooltip {
+   background: white;
+   border-radius: 3px;
+   padding: 10px;
+
+   z-index: 500000;
+   position: absolute;
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+   font-size: 15px;
+
+   .tooltip-top {
+      display: flex;
+      align-items: center;
+
+      .line {
+         width: 10px;
+         height: 2px;
+         border-radius: 2px;
+
+         margin-right: 5px;
+      }
+   }
+
+   .tooltip-title {
+      font-weight: 500;
+      color: $primary_text;
+   }
+
+   .tooltip-address {
+      color: $secondary_text;
+      font-size: 14px;
+      margin-top: 5px;
+   }
+}

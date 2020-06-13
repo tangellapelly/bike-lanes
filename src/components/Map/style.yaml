@@ -14,42 +14,28 @@ sources:
 global:
    language: en
    language_text_source: "function() { return (global.language && feature['name:'+global.language]) || feature.name;\n}\n"
-   water: '#D9EBFF'
-   text: '#51839A'
-   minor_text: '#51839A'
+   water: '#DADAEB'
+   text: '#8A8A98'
+   minor_text: '#A2A2B0'
    text_outline: '#FFF'
 
    #Category 1
-   highway: '#B6D3F4'
-   # highway_outline: '#B48D00'
+   highway: '#fff'
+   highway_outline: '#E3E3E3'
 
    #Cateogry 2
-   primary_road_start: '#FFC800'
-   primary_road_end: '#FFFC90'
-   primary_road_outline: '#D9E9EE'
+   primary_road_start: '#fff'
+   primary_road_end: '#fff'
+   primary_road_outline: '#E3E3E3'
+   minor_road_outline: '#EFEFEF'
 
    #Small
-   road: white
-   road_outline: '#EEEEEE'
+   road: '#fff'
+   road_outline: '#EFEFEF'
 
-   background: '#F3F6FA'
-   buildings: '#DDE4EE'
-   land: '#f5efef'
-   landuse_category_1: '#BBF0DD'
-   university: '#BBF0DD'
-   hospital: '#BBF0DD'
-   military: '#e4e5ef'
-   airport: '#e3e6ee'
-   runway: '#d8dce7'
-   water_park: '#BBF0DD'
-   sports_complex: '#BBF0DD'
-   park: '#BBF0DD'
-   national_park: '#BBF0DD'
-   congestion_zone: 'rgba(0, 0, 0, 0)'
-   country_boundary: '#89adae'
-   region_boundary: '#CED4D4'
-
-   country_text: '#51839A'
+   background: '#F8F8F8'
+   buildings: '#F3F3F3'
+   land: '#FAFAFA'
 styles:
    polygons_transparent:
       base: polygons
@@ -97,92 +83,19 @@ layers:
                color: global.region_boundary
                width: 1px
    places:
-      enabled: false
+      enabled: true
       data:
          source: omv
-      country:
-         filter:
-            kind: country
-            name: France
-         draw:
-            text:
-               text_source: global.language_text_source
-               priority: 1
-               order: 10000
-               font:
-                  family: FiraGO
-                  weight: 400
-                  fill: global.country_text
-                  size:
-                     - - 4
-                       - 12px
-                     - - 12
-                       - 18px
-                  buffer: 5px
-                  transform: uppercase
-                  stroke:
-                     color: global.text_outline
-                     width: 3
       city-points:
          filter:
             kind: locality
             kind_detail: city
-            $zoom:
-               # max: 4
-               # min: 4.5
-            # not:
-            #    name:
-            #       - Madrid
-            #       - Andorra la Vella
-            #       - València
-            #       - Palma
-            #       - Bilbao
-            #       - Oviedo
-            #       - Vila Nova de Gaia
-            #       - Murcia
-            #       - Seville
-            #       - Gibraltar
-            #       - Barcelona
-            #       - Zaragoza
-            #       - Valladolid
-            #       - Lisboa
-            #       - Sevilla
-            #       - London
-            #       - Cardiff
-            #       - Dublin
-            #       - Belfast
-            #       - Edinburgh
-            #       - Newcastle upon Tyne
-            #       - Leeds
-            #       - Hull
-            #       - Amsterdam
-            #       - Bruxelles
-            #       - Köln
-            #       - Frankfurt am Main
-            #       - Stuttgart
-            #       - München
-            #       - Milano
-            #       - Venezia
-            #       - Hamburg
-            #       - Hannover
-            #       - Nürnberg
-            #       - Roma
-            #       - Napoli
-            #       - Bari
-            #       - Palermo
-            #       - Catania
-            #       - Cagliari
-            #       - الجزائر
-            #       - تونس
-            #       - Pamplona
-            #       - Logroño
-            #       - Gijón
-            #       - Santander
-            #       - Genova
-            #       - Rotterdam
-            #       - Dortmund
-            #       - Aachen
-            #       - Saarbrücken
+            not:
+              name: 
+                - Boulogne-Billancourt
+                - Argenteuil
+                - Saint-Denis
+                - Montreuil
 
          draw:
             text:
@@ -199,7 +112,7 @@ layers:
                      - - 4
                        - 12px
                      - - 12
-                       - 16px
+                       - 20px
                   buffer: 10px
       town-points:
          filter:
@@ -208,11 +121,6 @@ layers:
             $zoom:
                min: 6
                max: 18
-            # not:
-            #    name:
-            #       - Andorra la Vella
-            #       - Monaco
-            #       - Luxembourg
          draw:
             text:
                text_source: global.language_text_source
@@ -261,133 +169,8 @@ layers:
          draw:
             polygons:
                order: 'function() { return feature.sort_rank; }'
-               color: global.park
-      built_up:
-         filter:
-            kind: urban
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.landuse_category_1
-      railway:
-         filter:
-            kind: railway
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.landuse_category_1
-      industrial:
-         filter:
-            kind: industrial
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.landuse_category_1
-      harbor:
-         filter:
-            kind: harbour
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.landuse_category_1
-      pedestrian:
-         filter:
-            kind: pedestrian
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.landuse_category_1
-      parking:
-         filter:
-            kind: parking
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.landuse_category_1
-      shopping:
-         filter:
-            kind: commercial
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.landuse_category_1
-      university:
-         filter:
-            kind: university
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.university
-      airport:
-         filter:
-            kind: aerodrome
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.airport
-      runway:
-         filter:
-            kind: runway
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.runway
-      hospital:
-         filter:
-            kind: hospital
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.hospital
-      military:
-         filter:
-            kind: military
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.military
-      water_park:
-         filter:
-            kind: water_park
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.water_park
-      sports_complex:
-         filter:
-            kind: sports_centre
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.sports_complex
-      cemetary:
-         filter:
-            kind: cemetary
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.park
-      golf_course:
-         filter:
-            kind: golf_course
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.park
-      national_park:
-         filter:
-            kind: national_park
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.national_park
-      congestion_zone:
-         filter:
-            kind: low_emision_zone
-         draw:
-            polygons:
-               order: 'function() { return feature.sort_rank; }'
-               color: global.congestion_zone
+               color: global.land
+
    water:
       data:
          source: omv
@@ -498,7 +281,7 @@ layers:
                   - - 18
                     - 10
                outline:
-                  color: global.primary_road_outline
+                  color: global.minor_road_outline
                   width: [[10, 0px], [14, 1px]]
          label:
             filter:
