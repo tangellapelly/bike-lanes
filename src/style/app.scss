@@ -7,6 +7,12 @@
    font-size: 14px;
 }
 
+@media screen and (max-width: $mobile_width) {
+   .app {
+      flex-direction: column;
+   }
+}
+
 p {
    color: $secondary_text;
 }

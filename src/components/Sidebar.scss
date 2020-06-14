@@ -18,25 +18,36 @@ $padding: 15px;
       border-bottom: $border;
       padding: 15px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
 
-      h1 {
-         font-size: 20px;
-         color: $primary_text;
-         font-weight: 500;
-         margin: 0;
-      }
+      .top-left {
+         display: flex;
+         align-items: center;
 
-      p:last-of-type {
-         margin-bottom: 0;
-      }
+         h1 {
+            font-size: 20px;
+            color: $primary_text;
+            font-weight: 500;
+            margin: 0;
+         }
 
-      .vertical-line {
-         height: 25px;
-         width: 1px;
-         margin: 0 10px;
-         background: $border_color;
+         p:last-of-type {
+            margin-bottom: 0;
+         }
+
+         .vertical-line {
+            height: 25px;
+            width: 1px;
+            margin: 0 10px;
+            background: $border_color;
+         }
       }
+   }
+
+   .logo {
+      height: 35px;
+      width: 35px;
    }
 
    .section {
@@ -82,7 +93,6 @@ $padding: 15px;
             background-repeat: no-repeat;
             background-size: cover;
             box-sizing: border-box;
-
          }
          .label {
             padding: 8px;
@@ -102,6 +112,24 @@ $padding: 15px;
 
       .tile-selected {
          border: 1px solid $highlight_color;
+      }
+   }
+}
+
+@media screen and (max-width: $mobile_width) {
+   .sidebar {
+      height: auto !important;
+      order: 1;
+      width: 100%;
+      border-right: none;
+
+      .top h1 {
+         font-size: 16px;
+      }
+
+      .logo {
+         height: 30px;
+         width: 30px;
       }
    }
 }
