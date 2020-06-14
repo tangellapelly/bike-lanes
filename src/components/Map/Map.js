@@ -1,12 +1,22 @@
-import React, { useRef, useEffect, useLayoutEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { platform, colors, locations } from '../../config';
 import stylePath from './style.yaml';
-import Logo from '../../static/Logo';
 import './Map.scss';
 import Tooltip from '../Tooltip';
 const { H } = window;
 
-const Map = ({ data, city }) => {
+const Descriptor = ({ side, sliderPos }) => {
+   return (
+      <div
+         style={{ left: side === 'left' ? 0 : sliderPos }}
+         className="descriptor"
+      >
+         {side === 'left' ? 'Pre COVID Lanes' : 'Post COVID Lanes'}
+      </div>
+   );
+};
+
+const Map = ({ data, city, side, sliderPos }) => {
    const [tooltip, setTooltip] = useState({
       visible: false,
       x: 0,
@@ -27,7 +37,7 @@ const Map = ({ data, city }) => {
          container.current,
          defaultLayers.vector.normal.map,
          {
-            center: { lat: 48.864716, lng: 2.349014 },
+            center: locations[city].coordinates,
             zoom: 12.5,
             pixelRatio: window.devicePixelRatio || 1,
          }
@@ -39,7 +49,6 @@ const Map = ({ data, city }) => {
       // setStyle();
       map.current.getEngine().setAnimationDuration(1000);
       setStyle();
-
       addObjects();
    }, []);
 
@@ -124,6 +133,7 @@ const Map = ({ data, city }) => {
    }
    return (
       <div className="map" ref={container}>
+         <Descriptor side={side} sliderPos={sliderPos} />
          {tooltip.visible && (
             <Tooltip x={tooltip.x} y={tooltip.y} content={tooltip.content} />
          )}

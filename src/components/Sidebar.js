@@ -2,6 +2,7 @@ import React from 'react';
 import './Sidebar.scss';
 import { colors } from '../config';
 import parisImg from '../static/paris.png';
+import Logo from '../static/Logo';
 
 const Section = ({ title, children, className }) => {
    return (
@@ -14,12 +15,12 @@ const Section = ({ title, children, className }) => {
    );
 };
 
-const CityTile = ({ city, onClick }) => {
+const CityTile = ({ city, onClick, selected }) => {
    return (
-      <div className="city-tile">
+      <div className={`city-tile `}>
          <div
             onClick={onClick}
-            className="tile"
+            className={`tile ${selected ? 'tile-selected' : ''}`}
             style={{
                backgroundImage: `url(${parisImg})`,
             }}
@@ -28,11 +29,16 @@ const CityTile = ({ city, onClick }) => {
       </div>
    );
 };
-const Sidebar = ({ setCity }) => {
+
+const Sidebar = ({ setCity, city }) => {
    return (
       <div className="sidebar">
          <div className="top">
+            <Logo style={{ height: 35, width: 35 }} />
+            <div className="vertical-line" />
             <h1>New COVID-19 Bike Lanes</h1>
+         </div>
+         <Section title="About">
             <p>
                This map explores the new bike lanes that have appeared
                throughout French cities as a result of COVID-19.
@@ -45,7 +51,7 @@ const Sidebar = ({ setCity }) => {
                Move the slider across the page horizontally to compare the
                change in bike lanes.
             </p>
-         </div>
+         </Section>
          <Section title="Legend">
             <div className="legend-row">
                <div
@@ -68,11 +74,24 @@ const Sidebar = ({ setCity }) => {
          </Section>
 
          <Section title="Select a city" className="city-grid">
-            <CityTile city="Paris" onClick={() => setCity('paris')} />
-            <CityTile city="Nantes" onClick={() => setCity('nantes')} />
-            <CityTile city="Lyon" onClick={() => setCity('lyon')} />
+            <CityTile
+               city="Paris"
+               selected={city === 'paris'}
+               onClick={() => setCity('paris')}
+            />
+            <CityTile
+               city="Nantes"
+               selected={city === 'nantes'}
+               onClick={() => setCity('nantes')}
+            />
+            <CityTile
+               city="Lyon"
+               selected={city === 'lyon'}
+               onClick={() => setCity('lyon')}
+            />
          </Section>
       </div>
    );
 };
+
 export default Sidebar;

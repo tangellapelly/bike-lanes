@@ -1,5 +1,15 @@
+@import '../../style/global.scss';
 .map {
    width: 100%;
    height: 100%;
    position: absolute;
+}
+
+.descriptor {
+   position: absolute;
+   top: 0;
+   z-index: 50000;
+   padding: 5px;
+   background: rgba(255, 255, 255, 0.9);
+   color: $secondary_text;
 }
