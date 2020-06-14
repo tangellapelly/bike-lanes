@@ -1,6 +1,6 @@
 import React from 'react';
 import './Sidebar.scss';
-import { colors } from '../config';
+import { colors, locations } from '../config';
 import parisImg from '../static/paris.png';
 import Logo from '../static/Logo';
 
@@ -16,16 +16,22 @@ const Section = ({ title, children, className }) => {
 };
 
 const CityTile = ({ city, onClick, selected }) => {
+   console.log(city);
    return (
-      <div className={`city-tile `}>
+      <div
+         onClick={onClick}
+         className={`city-tile ${selected ? 'tile-selected' : ''}`}
+      >
          <div
-            onClick={onClick}
-            className={`tile ${selected ? 'tile-selected' : ''}`}
+            className={`tile `}
             style={{
                backgroundImage: `url(${parisImg})`,
             }}
          />
-         <div className="label">{city}</div>
+         <div className="label">
+            <div className="label-city">{locations[city].label}</div>
+            <div className="label-province">{locations[city].province}</div>
+         </div>
       </div>
    );
 };
@@ -75,17 +81,17 @@ const Sidebar = ({ setCity, city }) => {
 
          <Section title="Select a city" className="city-grid">
             <CityTile
-               city="Paris"
+               city="paris"
                selected={city === 'paris'}
                onClick={() => setCity('paris')}
             />
             <CityTile
-               city="Nantes"
+               city="nantes"
                selected={city === 'nantes'}
                onClick={() => setCity('nantes')}
             />
             <CityTile
-               city="Lyon"
+               city="lyon"
                selected={city === 'lyon'}
                onClick={() => setCity('lyon')}
             />

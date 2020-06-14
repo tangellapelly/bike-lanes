@@ -12,14 +12,20 @@ const locations = {
    paris: {
       coordinates: { lat: 48.864716, lng: 2.349014 },
       zoom: 13,
+      province: 'Île-de-France',
+      label: 'Paris',
    },
    nantes: {
       coordinates: { lat: 47.218102, lng: -1.5528 },
       zoom: 13,
+      province: 'Pays de la Loire',
+      label: 'Nantes',
    },
    lyon: {
       coordinates: { lat: 45.74846, lng: 4.84671 },
       zoom: 13,
+      province: 'Auvergne-Rhône-Alpes',
+      label: 'Lyon',
    },
 };
 

@@ -68,24 +68,40 @@ $padding: 15px;
 
       $highlight_color: rgb(82, 82, 82);
 
-      .tile {
-         height: 80px;
+      .city-tile {
+         border: $border;
          border-radius: 3px;
-         margin-bottom: 10px;
-         background-repeat: no-repeat;
-         background-size: cover;
-         box-sizing: border-box;
-         border: 2px solid #e5e5e5;
-         transition: 0.1s all;
-         cursor: pointer;
 
-         &:hover {
-            border: 2px solid $highlight_color;
+         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+         cursor: pointer;
+         transition: 0.1s all;
+
+         .tile {
+            height: 60px;
+            border-radius: 3px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-sizing: border-box;
+
+         }
+         .label {
+            padding: 8px;
+
+            .label-city {
+               color: $primary_text;
+               font-weight: 500;
+               margin-bottom: 3px;
+            }
+
+            .label-province {
+               color: $secondary_text;
+               font-size: 13px;
+            }
          }
       }
 
       .tile-selected {
-         border: 2px solid $highlight_color;
+         border: 1px solid $highlight_color;
       }
    }
 }

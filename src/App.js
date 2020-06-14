@@ -19,8 +19,8 @@ function App() {
    const container = useRef(null);
 
    function calculateCursorPos(percent) {
-      const { x, width } = container.current.getBoundingClientRect();
-      return (percent / 100) * width;
+      const { width } = container.current.getBoundingClientRect();
+      return (percent / 100) * width + 3;
    }
    return (
       <div className="app">
