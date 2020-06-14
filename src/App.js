@@ -12,10 +12,9 @@ import { locations } from './config';
 
 function App() {
    const [city, setCity] = useState(Object.keys(locations)[0]);
-   console.log(city);
+   const [sidebarOpen, setSidebarOpen] = useState(true);
 
    const [sliderPos, setSliderPos] = useState(0);
-   console.log(sliderPos);
    const container = useRef(null);
 
    function calculateCursorPos(percent) {
@@ -24,7 +23,12 @@ function App() {
    }
    return (
       <div className="app">
-         <Sidebar setCity={setCity} city={city} />
+         <Sidebar
+            setCity={setCity}
+            city={city}
+            sidebarOpen={sidebarOpen}
+            setSidebarOpen={setSidebarOpen}
+         />
          <div style={{ height: '100%', flex: 1 }} ref={container}>
             <ReactCompareSlider
                onPositionChange={(per) => setSliderPos(calculateCursorPos(per))}
@@ -35,6 +39,7 @@ function App() {
                      city={city}
                      side="left"
                      data={data.filter((x) => !x.properties.covid)}
+                     sidebarOpen={sidebarOpen}
                   />
                }
                itemTwo={
@@ -43,6 +48,7 @@ function App() {
                      city={city}
                      data={data}
                      side="right"
+                     sidebarOpen={sidebarOpen}
                   />
                }
             />

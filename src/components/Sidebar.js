@@ -38,8 +38,7 @@ const CityTile = ({ city, onClick, selected }) => {
    );
 };
 
-const Sidebar = ({ setCity, city }) => {
-   const [visible, setVisibility] = useState(false);
+const Sidebar = ({ setCity, city, sidebarOpen, setSidebarOpen }) => {
    return (
       <div className="sidebar">
          <div className="top">
@@ -51,16 +50,16 @@ const Sidebar = ({ setCity, city }) => {
             <KeyboardArrowDownIcon
                style={{
                   fontSize: 24,
-                  transform: `rotate(${!visible ? '180deg' : '0deg'})`,
+                  transform: `rotate(${!sidebarOpen ? '180deg' : '0deg'})`,
                   transition: '0.3s all',
                }}
-               onClick={() => setVisibility((e) => !e)}
+               onClick={() => setSidebarOpen((e) => !e)}
             />
          </div>
          <div
             class="rest"
             style={{
-               height: visible ? 'auto' : 0,
+               height: sidebarOpen ? 'auto' : 0,
                overflow: 'none',
             }}
          >

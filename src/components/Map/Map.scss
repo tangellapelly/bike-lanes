@@ -13,3 +13,9 @@
    background: rgba(255, 255, 255, 0.9);
    color: $secondary_text;
 }
+
+@media screen and (max-width: $mobile_width) {
+   .H_imprint {
+      display: none;
+   }
+}

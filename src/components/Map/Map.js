@@ -16,7 +16,7 @@ const Descriptor = ({ side, sliderPos }) => {
    );
 };
 
-const Map = ({ data, city, side, sliderPos }) => {
+const Map = ({ data, city, side, sliderPos, sidebarOpen }) => {
    const [tooltip, setTooltip] = useState({
       visible: false,
       x: 0,
@@ -57,6 +57,10 @@ const Map = ({ data, city, side, sliderPos }) => {
       // addObjects();
       map.current.setCenter(locations[city].coordinates);
    }, [city]);
+
+   useEffect(() => {
+      map.current.getViewPort().resize();
+   }, [sidebarOpen]);
 
    async function setStyle() {
       const style = await fetch(stylePath).then((res) => res.text());
