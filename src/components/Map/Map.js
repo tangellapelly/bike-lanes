@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import { platform, colors, locations } from '../../config';
 import stylePath from './style.yaml';
 import './Map.scss';
-import Tooltip from '../Tooltip';
 const { H } = window;
 
 const Descriptor = ({ side, sliderPos }) => {
@@ -17,20 +16,10 @@ const Descriptor = ({ side, sliderPos }) => {
 };
 
 const Map = ({ data, city, side, sliderPos, sidebarOpen }) => {
-   const [tooltip, setTooltip] = useState({
-      visible: false,
-      x: 0,
-      y: 0,
-      content: {},
-   });
-
    const defaultLayers = platform.createDefaultLayers();
    const container = useRef(null);
    const map = useRef(null);
 
-   const objectProvider = new H.map.provider.LocalObjectProvider();
-   const objectLayer = new H.map.layer.ObjectLayer(objectProvider);
-   const root = objectProvider.getRootGroup();
    useEffect(() => {
       console.log('render');
       map.current = new H.Map(
@@ -45,16 +34,11 @@ const Map = ({ data, city, side, sliderPos, sidebarOpen }) => {
       window.addEventListener('resize', () =>
          map.current.getViewPort().resize()
       );
-      // new H.mapevents.Behavior(new H.mapevents.MapEvents(map.current));
-      // setStyle();
-      map.current.getEngine().setAnimationDuration(1000);
       setStyle();
       addObjects();
    }, []);
 
    useEffect(() => {
-      // removeObjects();
-      // addObjects();
       map.current.setCenter(locations[city].coordinates);
    }, [city]);
 
@@ -64,6 +48,7 @@ const Map = ({ data, city, side, sliderPos, sidebarOpen }) => {
 
    async function setStyle() {
       const style = await fetch(stylePath).then((res) => res.text());
+
       const provider = map.current.getBaseLayer().getProvider();
       provider.setStyle(new H.map.Style(style));
    }
@@ -90,57 +75,13 @@ const Map = ({ data, city, side, sliderPos, sidebarOpen }) => {
             },
          });
 
-         polyline.addEventListener('pointerenter', (evt) => {
-            const { clientX: x, clientY: y } = evt.originalEvent;
-
-            setTooltip({
-               visible: true,
-               x,
-               y,
-               content: properties,
-            });
-         });
-
-         polyline.addEventListener('pointermove', (evt) => {
-            const { clientX: x, clientY: y } = evt.originalEvent;
-            setTooltip({ visible: true, x, y, content: properties });
-         });
-
-         polyline.addEventListener('pointerleave', () => {
-            setTooltip({ visible: false });
-         });
          map.current.addObject(polyline);
       });
    }
 
-   function interleave() {
-      const style = map.current.getBaseLayer().getProvider().getStyle();
-      return new Promise((resolve) => {
-         const changeListener = () => {
-            if (style.getState() === H.map.Style.State.READY) {
-               style.removeEventListener('change', changeListener);
-               map.current.addLayer(objectLayer);
-               const labels = new H.map.Style(style.extractConfig('places'));
-               const labelsLayer = platform.getOMVService().createLayer(labels);
-               map.current.addLayer(labelsLayer);
-               resolve();
-            }
-         };
-         style.addEventListener('change', changeListener);
-      });
-   }
-
-   function removeObjects() {
-      map.current.getObjects().forEach((obj) => {
-         map.current.removeObject(obj);
-      });
-   }
    return (
       <div className="map" ref={container}>
          <Descriptor side={side} sliderPos={sliderPos} />
-         {tooltip.visible && (
-            <Tooltip x={tooltip.x} y={tooltip.y} content={tooltip.content} />
-         )}
       </div>
    );
 };

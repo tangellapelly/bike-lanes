@@ -43,6 +43,12 @@ $padding: 15px;
             background: $border_color;
          }
       }
+
+      .expand-icon {
+         font-size: 24px;
+         transition: 0.3s all;
+         display: none;
+      }
    }
 
    .logo {
@@ -130,6 +136,10 @@ $padding: 15px;
       .logo {
          height: 30px;
          width: 30px;
+      }
+
+      .expand-icon {
+         display: block !important;
       }
    }
 }

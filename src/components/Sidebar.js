@@ -27,7 +27,7 @@ const CityTile = ({ city, onClick, selected }) => {
          <div
             className={`tile `}
             style={{
-               backgroundImage: `url(${parisImg})`,
+               backgroundImage: `url(${locations[city].img})`,
             }}
          />
          <div className="label">
@@ -48,10 +48,9 @@ const Sidebar = ({ setCity, city, sidebarOpen, setSidebarOpen }) => {
                <h1>New COVID-19 Bike Lanes</h1>
             </div>
             <KeyboardArrowDownIcon
+               className="expand-icon"
                style={{
-                  fontSize: 24,
                   transform: `rotate(${!sidebarOpen ? '180deg' : '0deg'})`,
-                  transition: '0.3s all',
                }}
                onClick={() => setSidebarOpen((e) => !e)}
             />
@@ -99,21 +98,15 @@ const Sidebar = ({ setCity, city, sidebarOpen, setSidebarOpen }) => {
             </Section>
 
             <Section title="Select a city" className="city-grid">
-               <CityTile
-                  city="paris"
-                  selected={city === 'paris'}
-                  onClick={() => setCity('paris')}
-               />
-               <CityTile
-                  city="nantes"
-                  selected={city === 'nantes'}
-                  onClick={() => setCity('nantes')}
-               />
-               <CityTile
-                  city="lyon"
-                  selected={city === 'lyon'}
-                  onClick={() => setCity('lyon')}
-               />
+               {Object.keys(locations).map((currCity, index) => {
+                  return (
+                     <CityTile
+                        city={currCity}
+                        selected={city === currCity}
+                        onClick={() => setCity(currCity)}
+                     />
+                  );
+               })}
             </Section>
          </div>
       </div>
