@@ -9,7 +9,8 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 const Section = ({ title, children, className }) => {
    return (
       <div className="section">
-         <div className="section-title">{title}</div>
+         {title && <div className="section-title">{title}</div>}
+
          <div className={`section-content ${className ? className : ''}`}>
             {children}
          </div>
@@ -18,7 +19,6 @@ const Section = ({ title, children, className }) => {
 };
 
 const CityTile = ({ city, onClick, selected }) => {
-   console.log(city);
    return (
       <div
          onClick={onClick}
@@ -56,11 +56,11 @@ const Sidebar = ({ setCity, city, sidebarOpen, setSidebarOpen }) => {
             />
          </div>
          <div
-            class="rest"
             style={{
-               height: sidebarOpen ? 'auto' : 0,
-               overflow: 'none',
+               height: sidebarOpen ? 'auto' : '0px',
+               overflow: 'hidden',
             }}
+            className="rest"
          >
             <Section title="About">
                <p>
@@ -84,7 +84,7 @@ const Sidebar = ({ setCity, city, sidebarOpen, setSidebarOpen }) => {
                         background: colors.normal,
                      }}
                   ></div>
-                  Lanes pre COVID-19
+                  Lanes existing before COVID-19
                </div>
                <div className="legend-row">
                   <div
@@ -93,7 +93,7 @@ const Sidebar = ({ setCity, city, sidebarOpen, setSidebarOpen }) => {
                         background: colors.covid,
                      }}
                   ></div>
-                  Lanes for COVID-19
+                  Lanes introduced as a result of COVID-19
                </div>
             </Section>
 
@@ -101,12 +101,24 @@ const Sidebar = ({ setCity, city, sidebarOpen, setSidebarOpen }) => {
                {Object.keys(locations).map((currCity, index) => {
                   return (
                      <CityTile
+                        key={index}
                         city={currCity}
                         selected={city === currCity}
                         onClick={() => setCity(currCity)}
                      />
                   );
                })}
+            </Section>
+            <Section>
+               <div>
+                  Data sources:{' '}
+                  <a href="https://opendata.paris.fr/page/home/">Paris</a>,{' '}
+                  <a href="https://data.nantesmetropole.fr/pages/home/">
+                     Nantes
+                  </a>
+                  {', '}
+                  <a href="https://data.grandlyon.com/accueil">Lyon</a>.
+               </div>
             </Section>
          </div>
       </div>

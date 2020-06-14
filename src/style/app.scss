@@ -7,6 +7,10 @@
    font-size: 14px;
 }
 
+.slider-container {
+   flex: 1;
+}
+
 @media screen and (max-width: $mobile_width) {
    .app {
       flex-direction: column;
@@ -22,4 +26,14 @@ p {
    height: 4px;
    border-radius: 5px;
    margin-right: 5px;
+}
+
+a {
+   color: $primary_text;
+   text-decoration: none;
+   border-bottom: $border;
+}
+
+a:hover {
+   border-bottom: 1px solid $primary_text;
 }

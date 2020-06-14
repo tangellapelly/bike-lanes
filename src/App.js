@@ -1,3 +1,4 @@
+//React
 import React, { useState, useRef } from 'react';
 
 //Style
@@ -13,7 +14,6 @@ import { locations } from './config';
 function App() {
    const [city, setCity] = useState(Object.keys(locations)[0]);
    const [sidebarOpen, setSidebarOpen] = useState(true);
-
    const [sliderPos, setSliderPos] = useState(0);
    const container = useRef(null);
 
@@ -21,6 +21,7 @@ function App() {
       const { width } = container.current.getBoundingClientRect();
       return (percent / 100) * width + 3;
    }
+
    return (
       <div className="app">
          <Sidebar
@@ -29,7 +30,7 @@ function App() {
             sidebarOpen={sidebarOpen}
             setSidebarOpen={setSidebarOpen}
          />
-         <div style={{ height: '100%', flex: 1 }} ref={container}>
+         <div className="slider-container" ref={container}>
             <ReactCompareSlider
                onPositionChange={(per) => setSliderPos(calculateCursorPos(per))}
                style={{ height: '100%' }}

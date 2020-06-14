@@ -6,6 +6,11 @@ $secondary_text: #787878;
 
 $mobile_width: 600px;
 
+$background: #f9f9f9;
+$border_color: #e5e5e5;
+$border: 1px solid $border_color;
+$padding: 15px;
+
 :export {
    covid: $covid;
    normal: $normal;

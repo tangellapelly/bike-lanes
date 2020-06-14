@@ -10,7 +10,7 @@ const Descriptor = ({ side, sliderPos }) => {
          style={{ left: side === 'left' ? 0 : sliderPos }}
          className="descriptor"
       >
-         {side === 'left' ? 'Pre COVID Lanes' : 'Post COVID Lanes'}
+         {side === 'left' ? 'Pre COVID' : 'Post COVID'}
       </div>
    );
 };
@@ -21,7 +21,6 @@ const Map = ({ data, city, side, sliderPos, sidebarOpen }) => {
    const map = useRef(null);
 
    useEffect(() => {
-      console.log('render');
       map.current = new H.Map(
          container.current,
          defaultLayers.vector.normal.map,
@@ -48,7 +47,6 @@ const Map = ({ data, city, side, sliderPos, sidebarOpen }) => {
 
    async function setStyle() {
       const style = await fetch(stylePath).then((res) => res.text());
-
       const provider = map.current.getBaseLayer().getProvider();
       provider.setStyle(new H.map.Style(style));
    }
@@ -67,15 +65,14 @@ const Map = ({ data, city, side, sliderPos, sidebarOpen }) => {
                });
             });
          }
-
-         const polyline = new H.map.Polyline(lineString, {
-            style: {
-               lineWidth: properties.covid ? 3 : 2,
-               strokeColor: properties.covid ? colors.covid : colors.normal,
-            },
-         });
-
-         map.current.addObject(polyline);
+         map.current.addObject(
+            new H.map.Polyline(lineString, {
+               style: {
+                  lineWidth: properties.covid ? 3 : 2,
+                  strokeColor: properties.covid ? colors.covid : colors.normal,
+               },
+            })
+         );
       });
    }
 

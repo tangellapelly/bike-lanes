@@ -1,14 +1,10 @@
 @import '../style/global.scss';
 
-$background: #f9f9f9;
-$border_color: #e5e5e5;
-$border: 1px solid $border_color;
-$padding: 15px;
 .sidebar {
    background: white;
    width: 400px;
    border-right: $border;
-
+   height: auto;
    p {
       margin: 0;
    }
@@ -86,6 +82,7 @@ $padding: 15px;
       $highlight_color: rgb(82, 82, 82);
 
       .city-tile {
+         user-select: none;
          border: $border;
          border-radius: 3px;
 
@@ -124,7 +121,6 @@ $padding: 15px;
 
 @media screen and (max-width: $mobile_width) {
    .sidebar {
-      height: auto !important;
       order: 1;
       width: 100%;
       border-right: none;
