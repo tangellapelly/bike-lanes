@@ -78,18 +78,14 @@
       display: flex;
       grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 15px;
-
       $highlight_color: rgb(82, 82, 82);
 
       .city-tile {
          user-select: none;
          border: $border;
          border-radius: 3px;
-
-         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
          cursor: pointer;
          transition: 0.1s all;
-
          .tile {
             height: 60px;
             border-radius: 3px;
@@ -99,20 +95,17 @@
          }
          .label {
             padding: 8px;
-
             .label-city {
                color: $primary_text;
                font-weight: 500;
                margin-bottom: 3px;
             }
-
             .label-province {
                color: $secondary_text;
                font-size: 13px;
             }
          }
       }
-
       .tile-selected {
          border: 1px solid $highlight_color;
       }
