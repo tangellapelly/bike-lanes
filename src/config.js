@@ -4,7 +4,13 @@ import lyonImg from './static/lyon.png';
 import parisImg from './static/paris.png';
 import nantesImg from './static/nantes.png';
 
-const apikey = '1vO5Q3rOsOrwY8Ib0s_AEJn0-OyK0GvDBmAhyqNPHYc'; //Christo's: 'ZPsPkW20penY5wYBXiQF5PYIZs22XVSNMiykcJ0cwRw';
+/**
+ * TODO: Change api key to this:
+ * ZPsPkW20penY5wYBXiQF5PYIZs22XVSNMiykcJ0cwRw
+ *
+ */
+
+const apikey = '1vO5Q3rOsOrwY8Ib0s_AEJn0-OyK0GvDBmAhyqNPHYc';
 const { H } = window;
 const platform = new H.service.Platform({ apikey });
 
