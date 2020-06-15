@@ -1,5 +1,5 @@
 import { normal, covid } from './style/global.scss';
-
+import React from 'react';
 import lyonImg from './static/lyon.png';
 import parisImg from './static/paris.png';
 import nantesImg from './static/nantes.png';
@@ -26,6 +26,9 @@ const locations = {
       province: 'Île-de-France',
       label: 'Paris',
       img: parisImg,
+      attribution: (
+         <a href="https://opendata.paris.fr/page/home/">Open Data Paris</a>
+      ),
    },
    nantes: {
       coordinates: { lat: 47.218102, lng: -1.5528 },
@@ -33,6 +36,7 @@ const locations = {
       province: 'Pays de la Loire',
       label: 'Nantes',
       img: nantesImg,
+      attribution: <a href="https://data.grandlyon.com">data.grandlyon.com</a>,
    },
    lyon: {
       coordinates: { lat: 45.74846, lng: 4.84671 },
@@ -40,6 +44,9 @@ const locations = {
       province: 'Auvergne-Rhône-Alpes',
       label: 'Lyon',
       img: lyonImg,
+      attribution: (
+         <a href="https://data.nantesmetropole.com">data.nantesmetropole.com</a>
+      ),
    },
 };
 

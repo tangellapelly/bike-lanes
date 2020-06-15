@@ -39,13 +39,14 @@ const CityTile = ({ city, selected }) => {
 };
 
 const Sidebar = ({ city, sidebarOpen, setSidebarOpen }) => {
+   const { label } = locations[city];
    return (
       <div className="sidebar">
          <div className="top">
             <div className="top-left">
                <Logo className="logo" />
                <div className="vertical-line" />
-               <h1>New COVID-19 Bike Lanes</h1>
+               <h1>Social distancing pop-up bike lanes in {label}</h1>
             </div>
             <KeyboardArrowDownIcon
                className="expand-icon"
@@ -64,16 +65,19 @@ const Sidebar = ({ city, sidebarOpen, setSidebarOpen }) => {
          >
             <Section title="About">
                <p>
-                  This map explores the new bike lanes that have appeared
-                  throughout French cities as a result of COVID-19.
+                  Municipal authorities across Europe encourage cycling as safe
+                  means of transportation in the era of COVID-19 and a way to
+                  reduce air pollution.
                </p>
                <p>
-                  Multiple cities have been giving back streets to the people
-                  for more open air space.
+                  Many cities have opened new lanes promoting social distancing
+                  while biking. In this map you c an explore the newly opened
+                  bike lanes in {label}.
                </p>
                <p>
-                  Move the slider across the page horizontally to compare the
-                  change in bike lanes.
+                  By using the slider you can compare the pre-COVID-19 with
+                  post-COVID-19 state of the network. Zoom in for exact location
+                  and to find the nearest social distancing bike lane.
                </p>
             </Section>
             <Section title="Legend">
@@ -109,15 +113,7 @@ const Sidebar = ({ city, sidebarOpen, setSidebarOpen }) => {
                })}
             </Section>
             <Section>
-               <div>
-                  Data sources:{' '}
-                  <a href="https://opendata.paris.fr/page/home/">Paris</a>,{' '}
-                  <a href="https://data.nantesmetropole.fr/pages/home/">
-                     Nantes
-                  </a>
-                  {', '}
-                  <a href="https://data.grandlyon.com/accueil">Lyon</a>.
-               </div>
+               <div>Data provided: {locations[city].attribution}</div>
             </Section>
          </div>
       </div>
