@@ -45,7 +45,9 @@ const locations = {
       label: 'Lyon',
       img: lyonImg,
       attribution: (
-         <a href="https://data.nantesmetropole.com">data.nantesmetropole.com</a>
+         <a href="https://data.nantesmetropole.fr/pages/home/">
+            https://data.nantesmetropole.fr
+         </a>
       ),
    },
 };
