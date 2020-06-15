@@ -11,8 +11,8 @@ import Map from './components/Map/Map';
 import { ReactCompareSlider } from 'react-compare-slider';
 import { locations } from './config';
 
-function App() {
-   const [city, setCity] = useState(Object.keys(locations)[0]);
+function App(props) {
+   const { city = 'paris' } = props.match.params;
    const [sidebarOpen, setSidebarOpen] = useState(true);
    const [sliderPos, setSliderPos] = useState(0);
    const container = useRef(null);
@@ -25,7 +25,6 @@ function App() {
    return (
       <div className="app">
          <Sidebar
-            setCity={setCity}
             city={city}
             sidebarOpen={sidebarOpen}
             setSidebarOpen={setSidebarOpen}

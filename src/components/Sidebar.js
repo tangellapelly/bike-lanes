@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Sidebar.scss';
 import { colors, locations } from '../config';
-import parisImg from '../static/paris.png';
 import Logo from '../static/Logo';
+import { Link } from 'react-router-dom';
 
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 
@@ -18,10 +18,10 @@ const Section = ({ title, children, className }) => {
    );
 };
 
-const CityTile = ({ city, onClick, selected }) => {
+const CityTile = ({ city, selected }) => {
    return (
-      <div
-         onClick={onClick}
+      <Link
+         to={`/${city}`}
          className={`city-tile ${selected ? 'tile-selected' : ''}`}
       >
          <div
@@ -34,11 +34,11 @@ const CityTile = ({ city, onClick, selected }) => {
             <div className="label-city">{locations[city].label}</div>
             <div className="label-province">{locations[city].province}</div>
          </div>
-      </div>
+      </Link>
    );
 };
 
-const Sidebar = ({ setCity, city, sidebarOpen, setSidebarOpen }) => {
+const Sidebar = ({ city, sidebarOpen, setSidebarOpen }) => {
    return (
       <div className="sidebar">
          <div className="top">
@@ -104,7 +104,6 @@ const Sidebar = ({ setCity, city, sidebarOpen, setSidebarOpen }) => {
                         key={index}
                         city={currCity}
                         selected={city === currCity}
-                        onClick={() => setCity(currCity)}
                      />
                   );
                })}
