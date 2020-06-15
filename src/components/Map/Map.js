@@ -68,7 +68,7 @@ const Map = ({ data, city, side, sliderPos, sidebarOpen }) => {
          map.current.addObject(
             new H.map.Polyline(lineString, {
                style: {
-                  lineWidth: properties.covid ? 3 : 2,
+                  lineWidth: properties.covid ? 2 : 1,
                   strokeColor: properties.covid ? colors.covid : colors.normal,
                },
             })
