@@ -22,6 +22,10 @@ function App(props) {
       return (percent / 100) * width + 3;
    }
 
+   document.title =
+      locations[city].label +
+      ' - Social distancing pop-up bike lanes - HERE Developer';
+
    return (
       <div className="app">
          <Sidebar
