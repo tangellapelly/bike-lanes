@@ -28,7 +28,7 @@ const Map = ({ data, city, side, sliderPos, mobile }) => {
          defaultLayers.vector.normal.map,
          {
             center: locations[city].coordinates,
-            zoom: 12.5,
+            zoom: mobile ? 12.5 : 13.2,
             pixelRatio: window.devicePixelRatio || 1,
          }
       );
@@ -41,11 +41,12 @@ const Map = ({ data, city, side, sliderPos, mobile }) => {
 
    useEffect(() => {
       map.current.setCenter(locations[city].coordinates);
-      map.current.setZoom(locations[city].zoom);
+      map.current.setZoom(mobile ? 12.5 : 13.2);
    }, [city]);
 
    useEffect(() => {
       map.current.getViewPort().resize();
+      map.current.setZoom(mobile ? 12.5 : 13.2);
    }, [mobile]);
 
    async function setStyle() {
