@@ -10,7 +10,9 @@ const Descriptor = ({ side, sliderPos }) => {
          style={{ left: side === 'left' ? 0 : sliderPos }}
          className="descriptor"
       >
-         {side === 'left' ? 'Pre COVID' : 'Post COVID'}
+         {side === 'left'
+            ? 'Pistes existantes avant COVID-19'
+            : 'Pistes créées en raison de COVID-19'}
       </div>
    );
 };
@@ -39,6 +41,7 @@ const Map = ({ data, city, side, sliderPos, sidebarOpen }) => {
 
    useEffect(() => {
       map.current.setCenter(locations[city].coordinates);
+      map.current.setZoom(locations[city].zoom);
    }, [city]);
 
    useEffect(() => {

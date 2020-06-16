@@ -23,8 +23,9 @@ function App(props) {
    }
 
    document.title =
+      ' Nouvelle pistes cyclables post COVID en ' +
       locations[city].label +
-      ' - Social distancing pop-up bike lanes - HERE Developer';
+      ' - HERE Developer';
 
    return (
       <div className="app">

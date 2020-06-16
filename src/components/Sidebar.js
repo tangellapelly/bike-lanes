@@ -46,7 +46,7 @@ const Sidebar = ({ city, sidebarOpen, setSidebarOpen }) => {
             <div className="top-left">
                <Logo className="logo" />
                <div className="vertical-line" />
-               <h1>Social distancing pop-up bike lanes in {label}</h1>
+               <h1>Nouvelle pistes cyclables post COVID en {label}</h1>
             </div>
             <KeyboardArrowDownIcon
                className="expand-icon"
@@ -63,24 +63,23 @@ const Sidebar = ({ city, sidebarOpen, setSidebarOpen }) => {
             }}
             className="rest"
          >
-            <Section title="About">
+            <Section title="A propos">
                <p>
-                  Municipal authorities across Europe encourage cycling as safe
-                  means of transportation in the era of COVID-19 and a way to
-                  reduce air pollution.
+                  De nombreuses autorités locales à travers l’Europe encouragent
+                  les déplacements à vélo afin de réduire les risques sanitaires
+                  liés à la pandémie ainsi que la pollution.
                </p>
                <p>
-                  Many cities have opened new lanes promoting social distancing
-                  while biking. In this map you c an explore the newly opened
-                  bike lanes in {label}.
+                  Dans ce contexte, plusieurs villes françaises et européennes
+                  ont créé de nouvelles pistes cyclables. Sélectionnez une ville
+                  dans la liste ci-dessous pour consulter sa carte.
                </p>
                <p>
-                  By using the slider you can compare the pre-COVID-19 with
-                  post-COVID-19 state of the network. Zoom in for exact location
-                  and to find the nearest social distancing bike lane.
+                  Pour visualiser les évolutions, balayez l’écran avec le
+                  curseur, de gauche à droite sur la carte.
                </p>
             </Section>
-            <Section title="Legend">
+            <Section title="Légende">
                <div className="legend-row">
                   <div
                      className="line"
@@ -88,7 +87,7 @@ const Sidebar = ({ city, sidebarOpen, setSidebarOpen }) => {
                         background: colors.normal,
                      }}
                   ></div>
-                  Lanes existing before COVID-19
+                  Pistes existantes avant COVID-19
                </div>
                <div className="legend-row">
                   <div
@@ -97,11 +96,11 @@ const Sidebar = ({ city, sidebarOpen, setSidebarOpen }) => {
                         background: colors.covid,
                      }}
                   ></div>
-                  Lanes introduced as a result of COVID-19
+                  Pistes créées en raison de COVID-19
                </div>
             </Section>
 
-            <Section title="Select a city" className="city-grid">
+            <Section title="Sélectionnez une ville" className="city-grid">
                {Object.keys(locations).map((currCity, index) => {
                   return (
                      <CityTile
@@ -113,7 +112,7 @@ const Sidebar = ({ city, sidebarOpen, setSidebarOpen }) => {
                })}
             </Section>
             <Section>
-               <div>Data provided: {locations[city].attribution}</div>
+               <div>Données fournies par {locations[city].attribution}</div>
             </Section>
          </div>
       </div>

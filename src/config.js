@@ -22,7 +22,7 @@ const colors = {
 const locations = {
    paris: {
       coordinates: { lat: 48.864716, lng: 2.349014 },
-      zoom: 13,
+      zoom: 13.2,
       province: 'Île-de-France',
       label: 'Paris',
       img: parisImg,
@@ -32,7 +32,7 @@ const locations = {
    },
    nantes: {
       coordinates: { lat: 47.218102, lng: -1.5528 },
-      zoom: 13,
+      zoom: 13.2,
       province: 'Pays de la Loire',
       label: 'Nantes',
       img: nantesImg,
@@ -40,13 +40,13 @@ const locations = {
    },
    lyon: {
       coordinates: { lat: 45.74846, lng: 4.84671 },
-      zoom: 13,
+      zoom: 13.2,
       province: 'Auvergne-Rhône-Alpes',
       label: 'Lyon',
       img: lyonImg,
       attribution: (
          <a href="https://data.nantesmetropole.fr/pages/home/">
-            https://data.nantesmetropole.fr
+            data.nantesmetropole.fr
          </a>
       ),
    },
