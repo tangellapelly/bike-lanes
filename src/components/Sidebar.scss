@@ -9,49 +9,6 @@
       margin: 0;
    }
 
-   .top {
-      background: $background;
-      border-bottom: $border;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      .top-left {
-         display: flex;
-         align-items: center;
-
-         h1 {
-            font-size: 20px;
-            color: $primary_text;
-            font-weight: 500;
-            margin: 0;
-         }
-
-         p:last-of-type {
-            margin-bottom: 0;
-         }
-
-         .vertical-line {
-            height: 25px;
-            width: 1px;
-            margin: 0 10px;
-            background: $border_color;
-         }
-      }
-
-      .expand-icon {
-         font-size: 24px;
-         transition: 0.3s all;
-         display: none;
-      }
-   }
-
-   .logo {
-      height: 35px;
-      width: 35px;
-   }
-
    .section {
       border-bottom: $border;
       padding: $padding;
@@ -114,21 +71,8 @@
 
 @media screen and (max-width: $mobile_width) {
    .sidebar {
-      order: 1;
       width: 100%;
       border-right: none;
-
-      .top h1 {
-         font-size: 16px;
-      }
-
-      .logo {
-         height: 30px;
-         width: 30px;
-      }
-
-      .expand-icon {
-         display: block !important;
-      }
+      flex: 1;
    }
 }

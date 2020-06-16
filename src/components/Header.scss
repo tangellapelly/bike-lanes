@@ -1,0 +1,41 @@
+@import '../style/global.scss';
+header {
+   background: $background;
+   border-bottom: $border;
+   padding: 15px;
+   display: flex;
+   align-items: center;
+
+   h1 {
+      font-size: 20px;
+      color: $primary_text;
+      font-weight: 500;
+      margin: 0;
+   }
+
+   .vertical-line {
+      height: 25px;
+      width: 1px;
+      margin: 0 10px;
+      background: $border_color;
+   }
+
+   .expand-icon {
+      font-size: 24px;
+      transition: 0.3s all;
+      display: none;
+   }
+}
+
+@media screen and (max-width: $mobile_width) {
+   header {
+      h1 {
+         font-size: 18px;
+      }
+
+      .logo {
+         height: 30px;
+         width: 30px;
+      }
+   }
+}

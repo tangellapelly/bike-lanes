@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { platform, colors, locations } from '../../config';
-import stylePath from './style.yaml';
+import { platform, colors, locations } from '../config';
+import stylePath from '../static/style.yaml';
 import './Map.scss';
 const { H } = window;
 
@@ -17,7 +17,7 @@ const Descriptor = ({ side, sliderPos }) => {
    );
 };
 
-const Map = ({ data, city, side, sliderPos, sidebarOpen }) => {
+const Map = ({ data, city, side, sliderPos, mobile }) => {
    const defaultLayers = platform.createDefaultLayers();
    const container = useRef(null);
    const map = useRef(null);
@@ -46,7 +46,7 @@ const Map = ({ data, city, side, sliderPos, sidebarOpen }) => {
 
    useEffect(() => {
       map.current.getViewPort().resize();
-   }, [sidebarOpen]);
+   }, [mobile]);
 
    async function setStyle() {
       const style = await fetch(stylePath).then((res) => res.text());
