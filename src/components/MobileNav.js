@@ -13,7 +13,7 @@ const MobileNav = ({ selectedTab, setSelectedTab }) => {
             onClick={() => setSelectedTab(0)}
          >
             <MapIcon className="icon" />
-            Map
+            Carte
          </div>
          <div
             className={`tab ${selectedTab === 1 ? `tab-selected` : ``}`}
