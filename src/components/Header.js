@@ -6,7 +6,7 @@ const Header = ({ label }) => {
       <header>
          <Logo className="logo" />
          <div className="vertical-line" />
-         <h1>Nouvelle pistes cyclables post COVID en {label}</h1>
+         <h1>Nouvelles pistes cyclables post COVID à {label}</h1>
       </header>
    );
 };

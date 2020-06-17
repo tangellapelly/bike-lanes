@@ -41,7 +41,7 @@ function App(props) {
    }
 
    document.title =
-      ' Nouvelle pistes cyclables post COVID en ' +
+      'Nouvelles pistes cyclables post COVID à  ' +
       locations[city].label +
       ' - HERE Developer';
 
