@@ -31,7 +31,7 @@ const CityTile = ({ city, selected }) => {
          />
          <div className="label">
             <div className="label-city">{locations[city].label}</div>
-            <div className="label-province">{locations[city].province}</div>
+            <div className="label-province">{locations[city].country}</div>
          </div>
       </Link>
    );

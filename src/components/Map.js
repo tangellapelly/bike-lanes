@@ -52,16 +52,17 @@ const Map = ({ data, city, side, sliderPos, mobile }) => {
    }
 
    function addData() {
-      const [covidLayer, covidProvider] = layerManager.getCovidLayer();
-      map.current.addLayer(covidLayer);
+      if (side === 'right') {
+         const [covidLayer, covidProvider] = layerManager.getCovidLayer();
+         map.current.addLayer(covidLayer);
+
+         covidProvider
+            .getStyle()
+            .setProperty('layers.xyz.lines.draw.lines.color', colors.covid);
+      }
 
       const [normalLayer, normalProvider] = layerManager.getNormalLayer();
       map.current.addLayer(normalLayer);
-
-      covidProvider
-         .getStyle()
-         .setProperty('layers.xyz.lines.draw.lines.color', colors.covid);
-
       normalProvider
          .getStyle()
          .setProperty('layers.xyz.lines.draw.lines.color', colors.normal);

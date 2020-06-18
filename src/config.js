@@ -3,6 +3,8 @@ import React from 'react';
 import lyonImg from './static/lyon.png';
 import parisImg from './static/paris.png';
 import nantesImg from './static/nantes.png';
+import berlinImg from './static/berlin.png';
+import frankfurtImg from './static/frankfurt.png';
 
 /**
  * TODO: Change api key to this:
@@ -22,7 +24,7 @@ export const colors = {
 export const locations = {
    paris: {
       coordinates: { lat: 48.864716, lng: 2.349014 },
-      province: 'Île-de-France',
+      country: 'France',
       label: 'Paris',
       img: parisImg,
       attribution: (
@@ -32,16 +34,38 @@ export const locations = {
    nantes: {
       coordinates: { lat: 47.218102, lng: -1.5528 },
 
-      province: 'Pays de la Loire',
+      country: 'France',
       label: 'Nantes',
       img: nantesImg,
       attribution: <a href="https://data.grandlyon.com">data.grandlyon.com</a>,
    },
    lyon: {
       coordinates: { lat: 45.74846, lng: 4.84671 },
-      province: 'Auvergne-Rhône-Alpes',
+      country: 'France',
       label: 'Lyon',
       img: lyonImg,
+      attribution: (
+         <a href="https://data.nantesmetropole.fr/pages/home/">
+            data.nantesmetropole.fr
+         </a>
+      ),
+   },
+   berlin: {
+      coordinates: { lat: 52.520008, lng: 13.404954 },
+      country: 'Allemagne',
+      label: 'Berlin',
+      img: berlinImg,
+      attribution: (
+         <a href="https://www.stadtentwicklung.berlin.de/geoinformation/">
+            Geoportal Berlin
+         </a>
+      ),
+   },
+   frankfurt: {
+      coordinates: { lat: 50.110924, lng: 8.682127 },
+      country: 'Allemagne',
+      label: 'Frankfurt',
+      img: frankfurtImg,
       attribution: (
          <a href="https://data.nantesmetropole.fr/pages/home/">
             data.nantesmetropole.fr
@@ -51,6 +75,6 @@ export const locations = {
 };
 
 export const spaces = {
-   normal: 'XZcuLMKb',
-   covid: 'o2ZZMIv8',
+   normal: 'XuVXEFYw',
+   covid: 'PIMUrl5M',
 };
