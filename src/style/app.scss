@@ -17,6 +17,12 @@
    }
 }
 
+.mobile-sidebar-container {
+   flex: 1;
+   overflow-y: scroll;
+   // height: 100%;
+}
+
 p {
    color: $secondary_text;
 }

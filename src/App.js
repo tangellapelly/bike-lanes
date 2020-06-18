@@ -84,9 +84,9 @@ function App(props) {
             </div>
             <div
                style={{
-                  height: '100%',
                   display: selectedTab === 1 ? '' : 'none',
                }}
+               className="mobile-sidebar-container"
             >
                <Sidebar header={false} city={city} />
             </div>
