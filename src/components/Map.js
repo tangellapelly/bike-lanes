@@ -1,21 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { platform, colors, locations } from '../config';
+import { platform, colors, locations, spaces } from '../config';
 import stylePath from '../static/style.yaml';
 import './Map.scss';
+import Descriptor from './Descriptor';
+import layerManager from '../util/LayerManager';
 const { H } = window;
-
-const Descriptor = ({ side, sliderPos }) => {
-   return (
-      <div
-         style={{ left: side === 'left' ? 0 : sliderPos }}
-         className="descriptor"
-      >
-         {side === 'left'
-            ? 'Pistes existantes avant COVID-19'
-            : 'Pistes créées en raison de COVID-19'}
-      </div>
-   );
-};
 
 const Map = ({ data, city, side, sliderPos, mobile }) => {
    const defaultLayers = platform.createDefaultLayers();
@@ -35,9 +24,16 @@ const Map = ({ data, city, side, sliderPos, mobile }) => {
       window.addEventListener('resize', () =>
          map.current.getViewPort().resize()
       );
+
       setStyle();
-      addObjects();
+      addData();
    }, []);
+
+   // useEffect(() => {
+   //    console.log('data length changed');
+   //    // addObjects();
+   //    addData();
+   // }, [data.length]);
 
    useEffect(() => {
       map.current.setCenter(locations[city].coordinates);
@@ -53,6 +49,26 @@ const Map = ({ data, city, side, sliderPos, mobile }) => {
       const style = await fetch(stylePath).then((res) => res.text());
       const provider = map.current.getBaseLayer().getProvider();
       provider.setStyle(new H.map.Style(style));
+   }
+
+   function addData() {
+      const [covidLayer, covidProvider] = layerManager.getCovidLayer();
+      map.current.addLayer(covidLayer);
+
+      const [normalLayer, normalProvider] = layerManager.getNormalLayer();
+      map.current.addLayer(normalLayer);
+
+      covidProvider
+         .getStyle()
+         .setProperty('layers.xyz.lines.draw.lines.color', colors.covid);
+
+      normalProvider
+         .getStyle()
+         .setProperty('layers.xyz.lines.draw.lines.color', colors.normal);
+
+      normalProvider
+         .getStyle()
+         .setProperty('layers.xyz.lines.draw.lines.width', '1px');
    }
 
    function addObjects() {

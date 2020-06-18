@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 //Style
 import './style/app.scss';
 import { mobileWidth } from './style/global.scss';
-import data from './data/data.json';
+// import rawData from './data/data.json';
 import Sidebar from './components/Sidebar';
 import MobileNav from './components/MobileNav';
 import Header from './components/Header';
@@ -12,12 +12,14 @@ import Header from './components/Header';
 //Components
 import Map from './components/Map';
 import { ReactCompareSlider } from 'react-compare-slider';
-import { locations } from './config';
+import { locations, platform, spaces } from './config';
+
+const { H } = window;
+// const data = rawData.features;
 
 function App(props) {
    const { city = 'paris' } = props.match.params;
    const [sliderPos, setSliderPos] = useState(0);
-
    const [selectedTab, setSelectedTab] = useState(0);
    const container = useRef(null);
 
@@ -46,40 +48,49 @@ function App(props) {
       ' - HERE Developer';
 
    // console.log(mobile, selectedTab);
+
+   const slider = (
+      <ReactCompareSlider
+         onPositionChange={(per) => setSliderPos(calculateCursorPos(per))}
+         style={{ height: '100%' }}
+         itemOne={
+            <Map
+               sliderPos={sliderPos}
+               city={city}
+               side="left"
+               mobile={mobile}
+            />
+         }
+         itemTwo={
+            <Map
+               sliderPos={sliderPos}
+               city={city}
+               side="right"
+               mobile={mobile}
+            />
+         }
+      />
+   );
    if (mobile) {
       return (
          <div className="app">
             <Header label={locations[city].label} />
-            {selectedTab === 0 ? (
-               <div className="slider-container" ref={container}>
-                  <ReactCompareSlider
-                     onPositionChange={(per) =>
-                        setSliderPos(calculateCursorPos(per))
-                     }
-                     style={{ height: '100%' }}
-                     itemOne={
-                        <Map
-                           sliderPos={sliderPos}
-                           city={city}
-                           side="left"
-                           mobile={mobile}
-                           data={data.filter((x) => !x.properties.covid)}
-                        />
-                     }
-                     itemTwo={
-                        <Map
-                           sliderPos={sliderPos}
-                           city={city}
-                           data={data}
-                           side="right"
-                           mobile={mobile}
-                        />
-                     }
-                  />
-               </div>
-            ) : (
+            <div
+               className="slider-container"
+               ref={container}
+               style={{ display: selectedTab === 0 ? 'block' : 'none' }}
+            >
+               {slider}
+            </div>
+            <div
+               style={{
+                  height: '100%',
+                  display: selectedTab === 1 ? '' : 'none',
+               }}
+            >
                <Sidebar header={false} city={city} />
-            )}
+            </div>
+
             <MobileNav
                selectedTab={selectedTab}
                setSelectedTab={setSelectedTab}
@@ -91,30 +102,7 @@ function App(props) {
          <div className="app">
             <Sidebar header={true} city={city} />
             <div className="slider-container" ref={container}>
-               <ReactCompareSlider
-                  onPositionChange={(per) =>
-                     setSliderPos(calculateCursorPos(per))
-                  }
-                  style={{ height: '100%' }}
-                  itemOne={
-                     <Map
-                        sliderPos={sliderPos}
-                        city={city}
-                        side="left"
-                        data={data.filter((x) => !x.properties.covid)}
-                        mobile={mobile}
-                     />
-                  }
-                  itemTwo={
-                     <Map
-                        sliderPos={sliderPos}
-                        city={city}
-                        data={data}
-                        side="right"
-                        mobile={mobile}
-                     />
-                  }
-               />
+               {slider}
             </div>
          </div>
       );

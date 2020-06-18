@@ -10,16 +10,16 @@ import nantesImg from './static/nantes.png';
  *
  */
 
-const apikey = '1vO5Q3rOsOrwY8Ib0s_AEJn0-OyK0GvDBmAhyqNPHYc';
-const { H } = window;
-const platform = new H.service.Platform({ apikey });
+export const token = 'AHy7HHPkQFC5fcpQBmnQ7QA';
+export const apikey = '1vO5Q3rOsOrwY8Ib0s_AEJn0-OyK0GvDBmAhyqNPHYc';
+export const platform = new window.H.service.Platform({ apikey });
 
-const colors = {
+export const colors = {
    covid,
    normal,
 };
 
-const locations = {
+export const locations = {
    paris: {
       coordinates: { lat: 48.864716, lng: 2.349014 },
       province: 'Île-de-France',
@@ -50,4 +50,7 @@ const locations = {
    },
 };
 
-export { platform, colors, locations };
+export const spaces = {
+   normal: 'XZcuLMKb',
+   covid: 'o2ZZMIv8',
+};

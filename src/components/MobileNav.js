@@ -20,7 +20,7 @@ const MobileNav = ({ selectedTab, setSelectedTab }) => {
             onClick={() => setSelectedTab(1)}
          >
             <FormatListBulletedIcon className="icon" />
-            Info
+            Infos
          </div>
       </div>
    );
