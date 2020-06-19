@@ -66,11 +66,7 @@ export const locations = {
       country: 'Allemagne',
       label: 'Frankfurt',
       img: frankfurtImg,
-      attribution: (
-         <a href="https://data.nantesmetropole.fr/pages/home/">
-            data.nantesmetropole.fr
-         </a>
-      ),
+      attribution: 'Geoportal Frankfurt',
    },
 };
 
