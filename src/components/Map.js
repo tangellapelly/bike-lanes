@@ -70,6 +70,15 @@ const Map = ({ data, city, side, sliderPos, mobile }) => {
       normalProvider
          .getStyle()
          .setProperty('layers.xyz.lines.draw.lines.width', '1px');
+
+      if (side === 'right') {
+         const [covidLayer, covidProvider] = layerManager.getCovidLayer();
+         map.current.addLayer(covidLayer);
+
+         covidProvider
+            .getStyle()
+            .setProperty('layers.xyz.lines.draw.lines.color', colors.covid);
+      }
    }
 
    function addObjects() {
