@@ -87,6 +87,48 @@ frankfurtNormal.features.forEach((feature) => {
    data.push(feature);
 });
 
+/**
+ * Hamburg
+ */
+const hamburgCovid = require('./input-data/hamburg/hamburg-covid.json');
+hamburgCovid.features.forEach((feature) => {
+   feature.properties = {
+      covid: true,
+      city: 'hamburg',
+   };
+   data.push(feature);
+});
+
+const hamburgNormal = require('./input-data/hamburg/hamburg-normal.json');
+hamburgNormal.features.forEach((feature) => {
+   feature.properties = {
+      covid: false,
+      city: 'hamburg',
+   };
+   data.push(feature);
+});
+
+/**
+ * Stuttgart
+ */
+const stuttgartCovid = require('./input-data/stuttgart/stuttgart-covid.json');
+stuttgartCovid.features.forEach((feature) => {
+   feature.properties = {
+      covid: true,
+      city: 'stuttgart',
+   };
+   data.push(feature);
+});
+
+const stuttgartNormal = require('./input-data/stuttgart/stuttgart-normal.json');
+stuttgartNormal.features.forEach((feature) => {
+   feature.properties = {
+      covid: false,
+      city: 'stuttgart',
+   };
+   data.push(feature);
+});
+
 fs.writeFile(
    './data/covid.json',
    JSON.stringify(

@@ -5,6 +5,8 @@ import parisImg from './static/paris.png';
 import nantesImg from './static/nantes.png';
 import berlinImg from './static/berlin.png';
 import frankfurtImg from './static/frankfurt.png';
+import hamburgImg from './static/hamburg.png';
+import stuttgartImg from './static/stuttgart.png';
 
 /**
  * TODO: Change api key to this:
@@ -68,9 +70,23 @@ export const locations = {
       img: frankfurtImg,
       attribution: 'Geoportal Frankfurt',
    },
+   stuttgart: {
+      coordinates: { lat: 48.783333, lng: 9.183333 },
+      country: 'Allemagne',
+      label: 'Stuttgart',
+      img: stuttgartImg,
+      attribution: 'Geoportal Stuttgart',
+   },
+   hamburg: {
+      coordinates: { lat: 53.551086, lng: 9.993682 },
+      country: 'Allemagne',
+      label: 'Hamburg',
+      img: hamburgImg,
+      attribution: 'Geoportal Hamburg',
+   },
 };
 
 export const spaces = {
-   normal: 'XuVXEFYw',
-   covid: 'PIMUrl5M',
+   normal: 'eQotPZjs',
+   covid: 'rdkoDe4D',
 };
