@@ -1,13 +1,51 @@
 const fs = require('fs');
+const length = require('@turf/length').default;
 
+const measurements = {
+   lyon: {
+      covid: 0,
+      normal: 0,
+   },
+   paris: {
+      covid: 0,
+      normal: 0,
+   },
+   nantes: {
+      covid: 0,
+      normal: 0,
+   },
+   berlin: {
+      covid: 0,
+      normal: 0,
+   },
+   frankfurt: {
+      covid: 0,
+      normal: 0,
+   },
+   stuttgart: {
+      covid: 0,
+      normal: 0,
+   },
+   hamburg: {
+      covid: 0,
+      normal: 0,
+   },
+};
 const data = [];
 const lyon = require('./input-data/lyon/lyon.json').features;
+
 lyon.forEach((feature) => {
    feature.properties = {
       covid: feature.properties.anneelivra === 2020,
       city: 'lyon',
    };
    data.push(feature);
+
+   if (feature.properties.covid) {
+      measurements.lyon.covid += length(feature);
+   } else {
+      measurements.lyon.normal += length(feature);
+   }
 });
 
 const parisNormal = require('./input-data/paris/paris-normal.json');
@@ -18,8 +56,8 @@ parisNormal.features.forEach((feature) => {
    };
    if (feature.geometry) {
       data.push(feature);
-   } else {
-      console.log(feature);
+
+      measurements.paris.normal += length(feature);
    }
 });
 
@@ -30,16 +68,17 @@ parisCovid.features.forEach((feature) => {
       city: 'aris',
    };
    data.push(feature);
+   measurements.paris.covid += length(feature);
 });
 
 const nantesNormal = require('./input-data/nantes/nantes-normal.json');
 nantesNormal.features.forEach((feature) => {
    feature.properties = {
       covid: false,
-
       city: 'nantes',
    };
    data.push(feature);
+   measurements.nantes.normal += length(feature);
 });
 
 const nantesCovid = require('./input-data/nantes/nantes-covid.json');
@@ -49,6 +88,7 @@ nantesCovid.features.forEach((feature) => {
       city: 'nantes',
    };
    data.push(feature);
+   measurements.nantes.covid += length(feature);
 });
 
 const berlinCovid = require('./input-data/berlin/berlin-covid.json');
@@ -58,6 +98,7 @@ berlinCovid.features.forEach((feature) => {
       city: 'berlin',
    };
    data.push(feature);
+   measurements.berlin.covid += length(feature);
 });
 
 const berlinNormal = require('./input-data/berlin/berlin-normal.json');
@@ -67,6 +108,7 @@ berlinNormal.features.forEach((feature) => {
       city: 'berlin',
    };
    data.push(feature);
+   measurements.berlin.normal += length(feature);
 });
 
 const frankfurtCovid = require('./input-data/frankfurt/frankfurt-covid.json');
@@ -76,6 +118,7 @@ frankfurtCovid.features.forEach((feature) => {
       city: 'frankfurt',
    };
    data.push(feature);
+   measurements.frankfurt.covid += length(feature);
 });
 
 const frankfurtNormal = require('./input-data/frankfurt/frankfurt-normal.json');
@@ -85,6 +128,7 @@ frankfurtNormal.features.forEach((feature) => {
       city: 'frankfurt',
    };
    data.push(feature);
+   measurements.frankfurt.normal += length(feature);
 });
 
 /**
@@ -97,6 +141,7 @@ hamburgCovid.features.forEach((feature) => {
       city: 'hamburg',
    };
    data.push(feature);
+   measurements.hamburg.covid += length(feature);
 });
 
 const hamburgNormal = require('./input-data/hamburg/hamburg-normal.json');
@@ -106,6 +151,7 @@ hamburgNormal.features.forEach((feature) => {
       city: 'hamburg',
    };
    data.push(feature);
+   measurements.hamburg.normal += length(feature);
 });
 
 /**
@@ -118,6 +164,7 @@ stuttgartCovid.features.forEach((feature) => {
       city: 'stuttgart',
    };
    data.push(feature);
+   measurements.stuttgart.covid += length(feature);
 });
 
 const stuttgartNormal = require('./input-data/stuttgart/stuttgart-normal.json');
@@ -127,30 +174,38 @@ stuttgartNormal.features.forEach((feature) => {
       city: 'stuttgart',
    };
    data.push(feature);
+   measurements.stuttgart.normal += length(feature);
 });
 
-fs.writeFile(
-   './data/covid.json',
-   JSON.stringify(
-      {
-         type: 'FeatureCollection',
-         features: data.filter((x) => x.properties.covid),
-      },
-      null,
-      3
-   ),
-   () => console.log('print covid data')
-);
+console.log(measurements);
+// fs.writeFile(
+//    './data/covid.json',
+//    JSON.stringify(
+//       {
+//          type: 'FeatureCollection',
+//          features: data.filter((x) => x.properties.covid),
+//       },
+//       null,
+//       3
+//    ),
+//    () => console.log('print covid data')
+// );
+
+// fs.writeFile(
+//    './data/normal.json',
+//    JSON.stringify(
+//       {
+//          type: 'FeatureCollection',
+//          features: data.filter((x) => !x.properties.covid),
+//       },
+//       null,
+//       3
+//    ),
+//    () => console.log('print normal data')
+// );
 
 fs.writeFile(
-   './data/normal.json',
-   JSON.stringify(
-      {
-         type: 'FeatureCollection',
-         features: data.filter((x) => !x.properties.covid),
-      },
-      null,
-      3
-   ),
-   () => console.log('print normal data')
+   '../src/data/measurements.json',
+   JSON.stringify(measurements, null, 3),
+   () => console.log('print measurements')
 );
