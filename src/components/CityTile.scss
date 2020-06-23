@@ -23,73 +23,45 @@ $highlight_color: rgb(82, 82, 82);
       background: $background;
    }
    user-select: none;
-
-   // padding: 5px 0;
-
    cursor: pointer;
    transition: 0.1s all;
 
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
+   display: grid;
+   grid-template-columns: auto 2fr 1.5fr 1.5fr;
+   input {
+      margin: 0;
+      padding: 0;
+      margin-right: 15px;
+      pointer-events: none;
+   }
 
-   .city-tile-left {
+   .radio-col {
       display: flex;
       align-items: center;
+   }
 
-      input {
-         margin-right: 15px;
-         pointer-events: none;
-      }
-      .country {
-         display: flex;
-         align-items: center;
-         color: $secondary_text;
-         font-size: 12px;
-         text-transform: uppercase;
-         // font-weight: 500;;
-         margin-bottom: 5px;
+   .sublead {
+      display: flex;
+      align-items: center;
+      color: $secondary_text;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
 
-         img {
-            margin-right: 5px;
-            border-radius: 1px;
-            height: 10px;
-         }
-      }
-
-      .city {
-         color: $primary_text;
-         font-size: 16px;
-         font-weight: 500;
+      img {
+         margin-right: 5px;
+         border-radius: 1px;
+         height: 10px;
       }
    }
 
-   .city-tile-right {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      row-gap: 10px;
-      width: 50%;
-      .bar-row {
-         // width:
-         display: flex;
-         align-items: center;
-
-         font-size: 12px;
-         color: $secondary_text;
-         .bar {
-            height: 10px;
-            border-radius: 1px;
-            margin-right: 5px;
-            // transition: 0.3s all;
-         }
-
-         .label {
-            // min-width: 60px;
-         }
-      }
+   .lead {
+      color: $primary_text;
+      font-size: 16px;
+      font-weight: 500;
    }
+
 }
 .tile-selected {
-   // border: 1px solid $highlight_color;
    background: $background;
 }

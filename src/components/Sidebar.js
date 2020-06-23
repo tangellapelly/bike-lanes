@@ -60,10 +60,10 @@ const Sidebar = ({ city, header }) => {
 
          <div className="city-grid">
             {Object.keys(locations)
-               .sort((b, a) => {
+               .sort((a, b) => {
                   return (
-                     locations[a].measurements.normal -
-                     locations[b].measurements.normal
+                     locations[b].measurements.covid -
+                     locations[a].measurements.covid
                   );
                })
                .map((currCity, index) => {

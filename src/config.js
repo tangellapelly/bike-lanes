@@ -34,6 +34,7 @@ export const locations = {
          <a href="https://opendata.paris.fr/page/home/">Open Data Paris</a>
       ),
       measurements: measurements.paris,
+      population: 2148271,
    },
    nantes: {
       coordinates: { lat: 47.218102, lng: -1.5528 },
@@ -43,6 +44,7 @@ export const locations = {
       img: nantesImg,
       attribution: <a href="https://data.grandlyon.com">data.grandlyon.com</a>,
       measurements: measurements.nantes,
+      population: 309346,
    },
    lyon: {
       coordinates: { lat: 45.74846, lng: 4.84671 },
@@ -55,6 +57,7 @@ export const locations = {
          </a>
       ),
       measurements: measurements.lyon,
+      population: 513275,
    },
    berlin: {
       coordinates: { lat: 52.520008, lng: 13.404954 },
@@ -67,6 +70,7 @@ export const locations = {
          </a>
       ),
       measurements: measurements.berlin,
+      population: 3769495,
    },
    frankfurt: {
       coordinates: { lat: 50.110924, lng: 8.682127 },
@@ -75,6 +79,7 @@ export const locations = {
       img: frankfurtImg,
       attribution: 'Geoportal Frankfurt',
       measurements: measurements.frankfurt,
+      population: 753056,
    },
    stuttgart: {
       coordinates: { lat: 48.783333, lng: 9.183333 },
@@ -83,6 +88,7 @@ export const locations = {
       img: stuttgartImg,
       attribution: 'Geoportal Stuttgart',
       measurements: measurements.stuttgart,
+      population: 634830,
    },
    hamburg: {
       coordinates: { lat: 53.551086, lng: 9.993682 },
@@ -91,6 +97,7 @@ export const locations = {
       img: hamburgImg,
       attribution: 'Geoportal Hamburg',
       measurements: measurements.hamburg,
+      population: 1899160,
    },
 };
 
