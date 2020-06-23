@@ -76,8 +76,12 @@ const Sidebar = ({ city, header }) => {
                   );
                })}
          </div>
-         <Section>
+         <Section className="attribution">
             <div>Données fournies par {locations[city].attribution}</div>
+            <div>
+               Bicycle lane length calculations may not match exactly to city
+               specifications.
+            </div>
          </Section>
       </div>
    );

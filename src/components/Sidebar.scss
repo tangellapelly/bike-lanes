@@ -36,6 +36,10 @@
       display: block !important;
       // padding: 0 !important;
    }
+
+   .attribution {
+      font-size: 12px;
+   }
 }
 
 @media screen and (max-width: $mobile_width) {
