@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './Sidebar.scss';
 import { colors, locations } from '../config';
-
-import { Link } from 'react-router-dom';
 import Header from './Header';
+import CityTile from './CityTile';
 
 const Section = ({ title, children, className }) => {
    return (
@@ -14,26 +13,6 @@ const Section = ({ title, children, className }) => {
             {children}
          </div>
       </div>
-   );
-};
-
-const CityTile = ({ city, selected }) => {
-   return (
-      <Link
-         to={`/${city}`}
-         className={`city-tile ${selected ? 'tile-selected' : ''}`}
-      >
-         <div
-            className={`tile `}
-            style={{
-               backgroundImage: `url(${locations[city].img})`,
-            }}
-         />
-         <div className="label">
-            <div className="label-city">{locations[city].label}</div>
-            <div className="label-province">{locations[city].country}</div>
-         </div>
-      </Link>
    );
 };
 
@@ -79,17 +58,24 @@ const Sidebar = ({ city, header }) => {
             </div>
          </Section>
 
-         <Section title="Sélectionnez une ville" className="city-grid">
-            {Object.keys(locations).map((currCity, index) => {
-               return (
-                  <CityTile
-                     key={index}
-                     city={currCity}
-                     selected={city === currCity}
-                  />
-               );
-            })}
-         </Section>
+         <div className="city-grid">
+            {Object.keys(locations)
+               .sort((b, a) => {
+                  return (
+                     locations[a].measurements.normal -
+                     locations[b].measurements.normal
+                  );
+               })
+               .map((currCity, index) => {
+                  return (
+                     <CityTile
+                        key={index}
+                        city={currCity}
+                        selected={city === currCity}
+                     />
+                  );
+               })}
+         </div>
          <Section>
             <div>Données fournies par {locations[city].attribution}</div>
          </Section>

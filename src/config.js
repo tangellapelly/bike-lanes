@@ -7,6 +7,7 @@ import berlinImg from './static/berlin.png';
 import frankfurtImg from './static/frankfurt.png';
 import hamburgImg from './static/hamburg.png';
 import stuttgartImg from './static/stuttgart.png';
+import measurements from './data/measurements.json';
 
 /**
  * TODO: Change api key to this:
@@ -32,6 +33,7 @@ export const locations = {
       attribution: (
          <a href="https://opendata.paris.fr/page/home/">Open Data Paris</a>
       ),
+      measurements: measurements.paris,
    },
    nantes: {
       coordinates: { lat: 47.218102, lng: -1.5528 },
@@ -40,6 +42,7 @@ export const locations = {
       label: 'Nantes',
       img: nantesImg,
       attribution: <a href="https://data.grandlyon.com">data.grandlyon.com</a>,
+      measurements: measurements.nantes,
    },
    lyon: {
       coordinates: { lat: 45.74846, lng: 4.84671 },
@@ -51,6 +54,7 @@ export const locations = {
             data.nantesmetropole.fr
          </a>
       ),
+      measurements: measurements.lyon,
    },
    berlin: {
       coordinates: { lat: 52.520008, lng: 13.404954 },
@@ -62,6 +66,7 @@ export const locations = {
             Geoportal Berlin
          </a>
       ),
+      measurements: measurements.berlin,
    },
    frankfurt: {
       coordinates: { lat: 50.110924, lng: 8.682127 },
@@ -69,6 +74,7 @@ export const locations = {
       label: 'Frankfurt',
       img: frankfurtImg,
       attribution: 'Geoportal Frankfurt',
+      measurements: measurements.frankfurt,
    },
    stuttgart: {
       coordinates: { lat: 48.783333, lng: 9.183333 },
@@ -76,6 +82,7 @@ export const locations = {
       label: 'Stuttgart',
       img: stuttgartImg,
       attribution: 'Geoportal Stuttgart',
+      measurements: measurements.stuttgart,
    },
    hamburg: {
       coordinates: { lat: 53.551086, lng: 9.993682 },
@@ -83,8 +90,16 @@ export const locations = {
       label: 'Hamburg',
       img: hamburgImg,
       attribution: 'Geoportal Hamburg',
+      measurements: measurements.hamburg,
    },
 };
+
+export const maxMeasurement = Math.max(
+   ...Object.keys(measurements).map((x) =>
+      Math.max(measurements[x].covid, measurements[x].normal)
+   )
+);
+console.log(maxMeasurement);
 
 export const spaces = {
    normal: 'eQotPZjs',
