@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Sidebar.scss';
 import { colors, locations } from '../config';
 import Header from './Header';
-import CityTile from './CityTile';
+import CityTile, { CityHeader } from './CityTile';
 
 const Section = ({ title, children, className }) => {
    return (
@@ -59,6 +59,7 @@ const Sidebar = ({ city, header }) => {
          </Section>
 
          <div className="city-grid">
+            <CityHeader />
             {Object.keys(locations)
                .sort(
                   (a, b) =>

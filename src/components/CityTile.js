@@ -14,29 +14,30 @@ const CityTile = ({ city, selected }) => {
          <div className="radio-col">
             <input type="radio" checked={selected} />
          </div>
-         <div className="flex-bottom">
-            <div className="sublead">
-               <img
-                  src={`https://restcountries.eu/data/${locations[city].countryCode}.svg`}
-               />
-               {locations[city].country}
-            </div>
-
-            <div className="lead">{locations[city].label}</div>
+         <div className="lead flag-cell">
+            <img
+               src={`https://restcountries.eu/data/${locations[city].countryCode}.svg`}
+            />
+            <div>{locations[city].label}</div>
          </div>
-         <div className="flex-bottom">
-            <div className="sublead">Population</div>
-            <div className="lead">
-               {formatPopulation(locations[city].population)}
-            </div>
+         <div className="lead">
+            {formatPopulation(locations[city].population)}
          </div>
-         <div className="flex-bottom">
-            <div className="sublead">nouvelles pistes cyclables</div>
-            <div className="lead covid-measurement-lead">
-               {Math.round(locations[city].measurements.covid * 10) / 10} KM
-            </div>
+         <div className="lead covid-measurement-lead">
+            {Math.round(locations[city].measurements.covid * 10) / 10} KM
          </div>
       </Link>
+   );
+};
+
+export const CityHeader = () => {
+   return (
+      <div className="city-header">
+         <div></div>
+         <div className="sublead">City</div>
+         <div className="sublead">Population</div>
+         <div className="sublead">nouvelles pistes cyclables</div>
+      </div>
    );
 };
 

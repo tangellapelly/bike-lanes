@@ -27,11 +27,11 @@ $highlight_color: rgb(82, 82, 82);
    transition: 0.1s all;
 
    display: grid;
-   grid-template-columns: auto 2fr 1.5fr 1.5fr;
+   grid-template-columns: 28px 2.2fr 1.5fr 1.5fr;
    input {
       margin: 0;
       padding: 0;
-      margin-right: 15px;
+      // margin-right: 15px;
       pointer-events: none;
    }
 
@@ -40,13 +40,14 @@ $highlight_color: rgb(82, 82, 82);
       align-items: center;
    }
 
-   .sublead {
+   .flag-cell {
       display: flex;
       align-items: center;
-      color: $secondary_text;
-      font-size: 11px;
-      text-transform: uppercase;
-      margin-bottom: 5px;
+   }
+   .lead {
+      color: $primary_text;
+      font-size: 16px;
+      font-weight: 500;
 
       img {
          margin-right: 5px;
@@ -55,16 +56,25 @@ $highlight_color: rgb(82, 82, 82);
       }
    }
 
-   .lead {
-      color: $primary_text;
-      font-size: 16px;
-      font-weight: 500;
-   }
-
    .covid-measurement-lead {
       color: $covid;
    }
 }
 .tile-selected {
    background: $background;
+}
+
+.city-header {
+   display: grid;
+   grid-template-columns: 28px 2.2fr 1.5fr 1.5fr;
+   padding: 5px 15px;
+   border-bottom: $border;
+
+   .sublead {
+      color: $secondary_text;
+      font-size: 11px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: flex-end;
+   }
 }
