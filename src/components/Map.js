@@ -59,6 +59,10 @@ const Map = ({ data, city, side, sliderPos, mobile }) => {
          covidProvider
             .getStyle()
             .setProperty('layers.xyz.lines.draw.lines.color', colors.covid);
+
+         covidProvider
+            .getStyle()
+            .setProperty('layers.xyz.lines.draw.lines.width', '2px');
       }
 
       const [normalLayer, normalProvider] = layerManager.getNormalLayer();
@@ -69,7 +73,7 @@ const Map = ({ data, city, side, sliderPos, mobile }) => {
 
       normalProvider
          .getStyle()
-         .setProperty('layers.xyz.lines.draw.lines.width', '1px');
+         .setProperty('layers.xyz.lines.draw.lines.width', '2px');
 
       if (side === 'right') {
          const [covidLayer, covidProvider] = layerManager.getCovidLayer();

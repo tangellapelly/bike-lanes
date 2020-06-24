@@ -110,6 +110,15 @@ export const locations = {
       population: 1620343,
       countryCode: 'esp',
    },
+   munich: {
+      coordinates: { lat: 48.137154, lng: 11.576124 },
+      country: 'Allemagne',
+      label: 'Munich',
+      attribution: 'Munich',
+      measurements: measurements.munich,
+      population: 1471508,
+      countryCode: 'deu',
+   },
 };
 
 export const maxMeasurement = Math.max(
