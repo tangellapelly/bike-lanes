@@ -120,6 +120,6 @@ export const maxMeasurement = Math.max(
 console.log(maxMeasurement);
 
 export const spaces = {
-   normal: 'QdOiWrOL',
-   covid: 'xi5dY4SO',
+   normal: 'KveCwJZV',
+   covid: 'sBabvMjt',
 };
