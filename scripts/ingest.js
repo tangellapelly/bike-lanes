@@ -1,6 +1,9 @@
 const fs = require('fs');
 const length = require('@turf/length').default;
 
+
+
+
 const measurements = {
    lyon: {
       covid: 0,
