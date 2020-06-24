@@ -61,6 +61,9 @@ $highlight_color: rgb(82, 82, 82);
       font-weight: 500;
    }
 
+   .covid-measurement-lead {
+      color: $covid;
+   }
 }
 .tile-selected {
    background: $background;

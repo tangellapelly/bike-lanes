@@ -88,11 +88,11 @@ layers:
             kind: locality
             kind_detail: city
             not:
-              name: 
-                - Boulogne-Billancourt
-                - Argenteuil
-                - Saint-Denis
-                - Montreuil
+               name:
+                  - Boulogne-Billancourt
+                  - Argenteuil
+                  - Saint-Denis
+                  - Montreuil
 
          draw:
             text:

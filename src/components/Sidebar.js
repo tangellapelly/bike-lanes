@@ -60,21 +60,15 @@ const Sidebar = ({ city, header }) => {
 
          <div className="city-grid">
             {Object.keys(locations)
-               .sort((a, b) => {
-                  return (
-                     locations[b].measurements.covid -
-                     locations[a].measurements.covid
-                  );
-               })
-               .map((currCity, index) => {
-                  return (
-                     <CityTile
-                        key={index}
-                        city={currCity}
-                        selected={city === currCity}
-                     />
-                  );
-               })}
+            .map((currCity, index) => {
+               return (
+                  <CityTile
+                     key={index}
+                     city={currCity}
+                     selected={city === currCity}
+                  />
+               );
+            })}
          </div>
          <Section className="attribution">
             <div>Données fournies par {locations[city].attribution}</div>

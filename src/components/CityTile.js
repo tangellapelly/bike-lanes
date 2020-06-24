@@ -34,7 +34,7 @@ const CityTile = ({ city, selected }) => {
          </div>
          <div>
             <div className="sublead">distance popup</div>
-            <div className="lead">
+            <div className="lead covid-measurement-lead">
                {Math.round(locations[city].measurements.covid * 10) / 10} KM
             </div>
          </div>
