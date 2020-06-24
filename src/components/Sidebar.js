@@ -60,21 +60,27 @@ const Sidebar = ({ city, header }) => {
 
          <div className="city-grid">
             {Object.keys(locations)
-            .map((currCity, index) => {
-               return (
-                  <CityTile
-                     key={index}
-                     city={currCity}
-                     selected={city === currCity}
-                  />
-               );
-            })}
+               .sort(
+                  (a, b) =>
+                     locations[b].measurements.covid -
+                     locations[a].measurements.covid
+               )
+               .map((currCity, index) => {
+                  return (
+                     <CityTile
+                        key={index}
+                        city={currCity}
+                        selected={city === currCity}
+                     />
+                  );
+               })}
          </div>
          <Section className="attribution">
             <div>Données fournies par {locations[city].attribution}</div>
             <div>
-               Bicycle lane length calculations may not match exactly to city
-               specifications.
+               La distance couverte par les voies cyclables listée sur ce site
+               peut ne pas correspondre exactement aux spécifications de
+               certaines villes
             </div>
          </Section>
       </div>

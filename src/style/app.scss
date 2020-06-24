@@ -43,3 +43,9 @@ a {
 a:hover {
    border-bottom: 1px solid $primary_text;
 }
+
+.flex-bottom {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+}
