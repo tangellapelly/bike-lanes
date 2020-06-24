@@ -17,9 +17,7 @@ const CityTile = ({ city, selected }) => {
          <div>
             <div className="sublead">
                <img
-                  src={`https://restcountries.eu/data/${
-                     locations[city].country === 'France' ? 'fra' : 'deu'
-                  }.svg`}
+                  src={`https://restcountries.eu/data/${locations[city].countryCode}.svg`}
                />
                {locations[city].country}
             </div>

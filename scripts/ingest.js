@@ -30,6 +30,14 @@ const measurements = {
       covid: 0,
       normal: 0,
    },
+   barcelona: {
+      covid: 0,
+      normal: 0,
+   },
+   milan: {
+      covid: 0,
+      normal: 0,
+   },
 };
 const data = [];
 const lyon = require('./input-data/lyon/lyon.json').features;
@@ -177,32 +185,78 @@ stuttgartNormal.features.forEach((feature) => {
    measurements.stuttgart.normal += length(feature);
 });
 
-console.log(measurements);
-// fs.writeFile(
-//    './data/covid.json',
-//    JSON.stringify(
-//       {
-//          type: 'FeatureCollection',
-//          features: data.filter((x) => x.properties.covid),
-//       },
-//       null,
-//       3
-//    ),
-//    () => console.log('print covid data')
-// );
+/**
+ * Barcelona
+ */
+const barcelonaCovid = require('./input-data/barcelona/barcelona-covid.json');
+barcelonaCovid.features.forEach((feature) => {
+   feature.properties = {
+      covid: true,
+      city: 'barcelona',
+   };
+   data.push(feature);
+   measurements.barcelona.covid += length(feature);
+});
 
-// fs.writeFile(
-//    './data/normal.json',
-//    JSON.stringify(
-//       {
-//          type: 'FeatureCollection',
-//          features: data.filter((x) => !x.properties.covid),
-//       },
-//       null,
-//       3
-//    ),
-//    () => console.log('print normal data')
-// );
+const barcelonaNormal = require('./input-data/barcelona/barcelona-normal.json');
+barcelonaNormal.features.forEach((feature) => {
+   feature.properties = {
+      covid: false,
+      city: 'barcelona',
+   };
+   data.push(feature);
+   measurements.barcelona.normal += length(feature);
+});
+
+/**
+ * Milan
+ */
+const milanCovid = require('./input-data/milan/milan-covid.json');
+milanCovid.features.forEach((feature) => {
+   feature.properties = {
+      covid: true,
+      city: 'milan',
+   };
+   data.push(feature);
+   measurements.milan.covid += length(feature);
+});
+
+const milanNormal = require('./input-data/milan/milan-normal.json');
+milanNormal.features.forEach((feature) => {
+   feature.properties = {
+      covid: false,
+      city: 'milan',
+   };
+   data.push(feature);
+   measurements.milan.normal += length(feature);
+});
+
+console.log(measurements);
+fs.writeFile(
+   './data/covid.json',
+   JSON.stringify(
+      {
+         type: 'FeatureCollection',
+         features: data.filter((x) => x.properties.covid),
+      },
+      null,
+      3
+   ),
+   () => console.log('print covid data')
+);
+
+fs.writeFile(
+   './data/normal.json',
+   JSON.stringify(
+      {
+         type: 'FeatureCollection',
+         features: data.filter((x) => !x.properties.covid),
+      },
+      null,
+      3
+   ),
+   () => console.log('print normal data')
+);
 
 fs.writeFile(
    '../src/data/measurements.json',

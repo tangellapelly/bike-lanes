@@ -14,7 +14,7 @@ sources:
 global:
    language: en
    language_text_source: "function() { return (global.language && feature['name:'+global.language]) || feature.name;\n}\n"
-   water: '#DADAEB'
+   water: '#E6E6E9'
    text: '#8A8A98'
    minor_text: '#A2A2B0'
    text_outline: '#FFF'

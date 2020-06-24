@@ -1,12 +1,5 @@
 import { normal, covid } from './style/global.scss';
 import React from 'react';
-import lyonImg from './static/lyon.png';
-import parisImg from './static/paris.png';
-import nantesImg from './static/nantes.png';
-import berlinImg from './static/berlin.png';
-import frankfurtImg from './static/frankfurt.png';
-import hamburgImg from './static/hamburg.png';
-import stuttgartImg from './static/stuttgart.png';
 import measurements from './data/measurements.json';
 
 /**
@@ -29,28 +22,27 @@ export const locations = {
       coordinates: { lat: 48.864716, lng: 2.349014 },
       country: 'France',
       label: 'Paris',
-      img: parisImg,
       attribution: (
          <a href="https://opendata.paris.fr/page/home/">Open Data Paris</a>
       ),
       measurements: measurements.paris,
       population: 2148271,
+      countryCode: 'fra',
    },
    nantes: {
       coordinates: { lat: 47.218102, lng: -1.5528 },
 
       country: 'France',
       label: 'Nantes',
-      img: nantesImg,
       attribution: <a href="https://data.grandlyon.com">data.grandlyon.com</a>,
       measurements: measurements.nantes,
       population: 309346,
+      countryCode: 'fra',
    },
    lyon: {
       coordinates: { lat: 45.74846, lng: 4.84671 },
       country: 'France',
       label: 'Lyon',
-      img: lyonImg,
       attribution: (
          <a href="https://data.nantesmetropole.fr/pages/home/">
             data.nantesmetropole.fr
@@ -58,12 +50,12 @@ export const locations = {
       ),
       measurements: measurements.lyon,
       population: 513275,
+      countryCode: 'fra',
    },
    berlin: {
       coordinates: { lat: 52.520008, lng: 13.404954 },
       country: 'Allemagne',
       label: 'Berlin',
-      img: berlinImg,
       attribution: (
          <a href="https://www.stadtentwicklung.berlin.de/geoinformation/">
             Geoportal Berlin
@@ -71,33 +63,52 @@ export const locations = {
       ),
       measurements: measurements.berlin,
       population: 3769495,
+      countryCode: 'deu',
    },
    frankfurt: {
       coordinates: { lat: 50.110924, lng: 8.682127 },
       country: 'Allemagne',
       label: 'Frankfurt',
-      img: frankfurtImg,
       attribution: 'Geoportal Frankfurt',
       measurements: measurements.frankfurt,
       population: 753056,
+      countryCode: 'deu',
    },
    stuttgart: {
       coordinates: { lat: 48.783333, lng: 9.183333 },
       country: 'Allemagne',
       label: 'Stuttgart',
-      img: stuttgartImg,
       attribution: 'Geoportal Stuttgart',
       measurements: measurements.stuttgart,
       population: 634830,
+      countryCode: 'deu',
    },
    hamburg: {
       coordinates: { lat: 53.551086, lng: 9.993682 },
       country: 'Allemagne',
       label: 'Hamburg',
-      img: hamburgImg,
       attribution: 'Geoportal Hamburg',
       measurements: measurements.hamburg,
       population: 1899160,
+      countryCode: 'deu',
+   },
+   milan: {
+      coordinates: { lat: 45.464664, lng: 9.18854 },
+      country: 'Italie',
+      label: 'Milan',
+      attribution: 'Milan',
+      measurements: measurements.milan,
+      population: 1404431,
+      countryCode: 'ita',
+   },
+   barcelona: {
+      coordinates: { lat: 41.392208, lng: 2.174173 },
+      country: 'Espagne',
+      label: 'Barcelone',
+      attribution: 'Barcelona',
+      measurements: measurements.barcelona,
+      population: 1620343,
+      countryCode: 'esp',
    },
 };
 
@@ -109,6 +120,6 @@ export const maxMeasurement = Math.max(
 console.log(maxMeasurement);
 
 export const spaces = {
-   normal: 'eQotPZjs',
-   covid: 'rdkoDe4D',
+   normal: 'QdOiWrOL',
+   covid: 'xi5dY4SO',
 };
