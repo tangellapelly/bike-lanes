@@ -3,13 +3,27 @@ import React from 'react';
 import measurements from './data/measurements.json';
 
 /**
+ * This is the HERE Developer API Key
  * TODO: Change api key to this:
  * ZPsPkW20penY5wYBXiQF5PYIZs22XVSNMiykcJ0cwRw
  *
  */
-
-export const token = 'AHy7HHPkQFC5fcpQBmnQ7QA';
 export const apikey = '1vO5Q3rOsOrwY8Ib0s_AEJn0-OyK0GvDBmAhyqNPHYc';
+
+/**
+ * This is the XYZ Access Token
+ * TODO: Change token to new account
+ */
+export const token = 'AFhj08d4S16jImglDHNMagA';
+
+/**
+ * TODO: These must be changed, see README file for more info.
+ */
+export const spaces = {
+   normal: 'KveCwJZV',
+   covid: 'sBabvMjt',
+};
+
 export const platform = new window.H.service.Platform({ apikey });
 
 export const colors = {
@@ -126,9 +140,3 @@ export const maxMeasurement = Math.max(
       Math.max(measurements[x].covid, measurements[x].normal)
    )
 );
-console.log(maxMeasurement);
-
-export const spaces = {
-   normal: 'KveCwJZV',
-   covid: 'sBabvMjt',
-};
