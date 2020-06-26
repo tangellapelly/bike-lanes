@@ -34,9 +34,9 @@ export const CityHeader = () => {
    return (
       <div className="city-header">
          <div></div>
-         <div className="sublead">City</div>
+         <div className="sublead">ville</div>
          <div className="sublead">Population</div>
-         <div className="sublead">nouvelles pistes cyclables</div>
+         <div className="sublead">coronapistes</div>
       </div>
    );
 };

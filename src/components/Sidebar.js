@@ -30,7 +30,8 @@ const Sidebar = ({ city, header }) => {
             <p>
                Dans ce contexte, plusieurs villes françaises et européennes ont
                créé de nouvelles pistes cyclables. Sélectionnez une ville dans
-               la liste ci-dessous pour consulter sa carte.
+               la liste ci-dessous pour consulter les « coronapistes » sur la
+               carte.
             </p>
             <p>
                Pour visualiser les évolutions, balayez l’écran avec le curseur,
