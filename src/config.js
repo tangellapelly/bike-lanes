@@ -71,7 +71,7 @@ export const locations = {
       country: 'Allemagne',
       label: 'Berlin',
       attribution: (
-         <a href="https://www.stadtentwicklung.berlin.de/geoinformation/">
+         <a href="https://fbinter.stadt-berlin.de/fb/index.jsp">
             Geoportal Berlin
          </a>
       ),
@@ -83,7 +83,7 @@ export const locations = {
       coordinates: { lat: 50.110924, lng: 8.682127 },
       country: 'Allemagne',
       label: 'Frankfurt',
-      attribution: 'Geoportal Frankfurt',
+      attribution: 'HERE',
       measurements: measurements.frankfurt,
       population: 753056,
       countryCode: 'deu',
@@ -92,7 +92,7 @@ export const locations = {
       coordinates: { lat: 48.783333, lng: 9.183333 },
       country: 'Allemagne',
       label: 'Stuttgart',
-      attribution: 'Geoportal Stuttgart',
+      attribution: 'HERE',
       measurements: measurements.stuttgart,
       population: 634830,
       countryCode: 'deu',
@@ -101,7 +101,7 @@ export const locations = {
       coordinates: { lat: 53.551086, lng: 9.993682 },
       country: 'Allemagne',
       label: 'Hamburg',
-      attribution: 'Geoportal Hamburg',
+      attribution: 'HERE',
       measurements: measurements.hamburg,
       population: 1899160,
       countryCode: 'deu',
@@ -110,7 +110,7 @@ export const locations = {
       coordinates: { lat: 45.464664, lng: 9.18854 },
       country: 'Italie',
       label: 'Milan',
-      attribution: 'Milan',
+      attribution: 'HERE',
       measurements: measurements.milan,
       population: 1404431,
       countryCode: 'ita',
@@ -119,7 +119,7 @@ export const locations = {
       coordinates: { lat: 41.392208, lng: 2.174173 },
       country: 'Espagne',
       label: 'Barcelone',
-      attribution: 'Barcelona',
+      attribution: 'HERE',
       measurements: measurements.barcelona,
       population: 1620343,
       countryCode: 'esp',
