@@ -20,8 +20,8 @@ export const token = 'AFhj08d4S16jImglDHNMagA';
  * TODO: These must be changed, see README file for more info.
  */
 export const spaces = {
-   normal: 'KveCwJZV',
-   covid: 'sBabvMjt',
+   normal: 'Sa0FZdYc',
+   covid: 'amsOcYNf',
 };
 
 export const platform = new window.H.service.Platform({ apikey });
@@ -110,7 +110,11 @@ export const locations = {
       coordinates: { lat: 45.464664, lng: 9.18854 },
       country: 'Italie',
       label: 'Milan',
-      attribution: 'HERE',
+      attribution: (
+         <a href="https://dati.comune.milano.it/dataset/ds60_infogeo_piste_ciclabili_localizzazione_">
+            Comune di Milano Open Data Portal
+         </a>
+      ),
       measurements: measurements.milan,
       population: 1404431,
       countryCode: 'ita',
