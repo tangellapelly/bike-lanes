@@ -52,6 +52,16 @@ const Map = ({ data, city, side, sliderPos, mobile }) => {
    }
 
    function addData() {
+      const [normalLayer, normalProvider] = layerManager.getNormalLayer();
+      map.current.addLayer(normalLayer);
+      normalProvider
+         .getStyle()
+         .setProperty('layers.xyz.lines.draw.lines.color', colors.normal);
+
+      normalProvider
+         .getStyle()
+         .setProperty('layers.xyz.lines.draw.lines.width', '1px');
+
       if (side === 'right') {
          const [covidLayer, covidProvider] = layerManager.getCovidLayer();
          map.current.addLayer(covidLayer);
@@ -63,25 +73,6 @@ const Map = ({ data, city, side, sliderPos, mobile }) => {
          covidProvider
             .getStyle()
             .setProperty('layers.xyz.lines.draw.lines.width', '2px');
-      }
-
-      const [normalLayer, normalProvider] = layerManager.getNormalLayer();
-      map.current.addLayer(normalLayer);
-      normalProvider
-         .getStyle()
-         .setProperty('layers.xyz.lines.draw.lines.color', colors.normal);
-
-      normalProvider
-         .getStyle()
-         .setProperty('layers.xyz.lines.draw.lines.width', '2px');
-
-      if (side === 'right') {
-         const [covidLayer, covidProvider] = layerManager.getCovidLayer();
-         map.current.addLayer(covidLayer);
-
-         covidProvider
-            .getStyle()
-            .setProperty('layers.xyz.lines.draw.lines.color', colors.covid);
       }
    }
 
