@@ -1,6 +1,6 @@
 import React from 'react';
 import './Sidebar.scss';
-import { colors, locations } from '../config';
+import { colors, locations, languages, CURRENT_LANGUAGE } from '../config';
 import Header from './Header';
 import CityTile, { CityHeader } from './CityTile';
 
@@ -19,26 +19,12 @@ const Section = ({ title, children, className }) => {
 const Sidebar = ({ city, header }) => {
    return (
       <div className="sidebar">
-         {header && <Header label={locations[city].label} />}
+         {header && <Header label={locations[city].labels[CURRENT_LANGUAGE]} />}
 
-         <Section title="A propos">
-            <p>
-               De nombreuses autorités locales à travers l’Europe encouragent
-               les déplacements à vélo afin de réduire les risques sanitaires
-               liés à la pandémie ainsi que la pollution.
-            </p>
-            <p>
-               Dans ce contexte, plusieurs villes françaises et européennes ont
-               créé de nouvelles pistes cyclables. Sélectionnez une ville dans
-               la liste ci-dessous pour consulter les « coronapistes » sur la
-               carte.
-            </p>
-            <p>
-               Pour visualiser les évolutions, balayez l’écran avec le curseur,
-               de gauche à droite sur la carte.
-            </p>
+         <Section title={languages.aboutTitle[CURRENT_LANGUAGE]()}>
+            {languages.aboutParagraphs[CURRENT_LANGUAGE]()}
          </Section>
-         <Section title="Légende">
+         <Section title={languages.legendTitle[CURRENT_LANGUAGE]()}>
             <div className="legend-row">
                <div
                   className="line"
@@ -46,7 +32,7 @@ const Sidebar = ({ city, header }) => {
                      background: colors.normal,
                   }}
                ></div>
-               Pistes existantes avant COVID-19
+               {languages.legendLabelNormal[CURRENT_LANGUAGE]()}
             </div>
             <div className="legend-row">
                <div
@@ -55,7 +41,7 @@ const Sidebar = ({ city, header }) => {
                      background: colors.covid,
                   }}
                ></div>
-               Pistes créées en raison de COVID-19
+               {languages.legendLabelCovid[CURRENT_LANGUAGE]()}
             </div>
          </Section>
 
@@ -78,12 +64,11 @@ const Sidebar = ({ city, header }) => {
                })}
          </div>
          <Section className="attribution">
-            <div>Données fournies par {locations[city].attribution}</div>
             <div>
-               La distance couverte par les voies cyclables listée sur ce site
-               peut ne pas correspondre exactement aux spécifications de
-               certaines villes
+               {languages.dataAttributionLabel[CURRENT_LANGUAGE]()}{' '}
+               {locations[city].attribution}
             </div>
+            <div>{languages.finePrintLabel[CURRENT_LANGUAGE]()}</div>
          </Section>
       </div>
    );

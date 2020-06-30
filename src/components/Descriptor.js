@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { languages, CURRENT_LANGUAGE } from '../config';
 const Descriptor = ({ side, sliderPos }) => {
    return (
       <div
@@ -6,8 +8,8 @@ const Descriptor = ({ side, sliderPos }) => {
          className="descriptor"
       >
          {side === 'left'
-            ? 'Pistes existantes avant COVID-19'
-            : 'Pistes créées en raison de COVID-19'}
+            ? languages.mapDescriptorNormalLabel[CURRENT_LANGUAGE]()
+            : languages.mapDescriptorCovidLabel[CURRENT_LANGUAGE]()}
       </div>
    );
 };

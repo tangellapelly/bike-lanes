@@ -11,8 +11,7 @@ import Header from './components/Header';
 //Components
 import Map from './components/Map';
 import { ReactCompareSlider } from 'react-compare-slider';
-import { locations } from './config';
-
+import { locations, languages, CURRENT_LANGUAGE } from './config';
 
 function App(props) {
    const { city = 'paris' } = props.match.params;
@@ -40,11 +39,9 @@ function App(props) {
    }
 
    document.title =
-      'Nouvelles pistes cyclables post COVID à  ' +
-      locations[city].label +
-      ' - HERE Developer';
-
-
+      languages.title[CURRENT_LANGUAGE](
+         locations[city].labels[CURRENT_LANGUAGE]
+      ) + ' - HERE Developer';
    const slider = (
       <ReactCompareSlider
          onPositionChange={(per) => setSliderPos(calculateCursorPos(per))}
@@ -70,7 +67,7 @@ function App(props) {
    if (mobile) {
       return (
          <div className="app">
-            <Header label={locations[city].label} />
+            <Header label={locations[city].labels[CURRENT_LANGUAGE]} />
             <div
                className="slider-container"
                ref={container}

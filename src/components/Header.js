@@ -1,12 +1,15 @@
 import React from 'react';
 import Logo from '../static/Logo';
+import { languages, CURRENT_LANGUAGE } from '../config';
 import './Header.scss';
 const Header = ({ label }) => {
    return (
       <header>
          <Logo className="logo" />
          <div className="vertical-line" />
-         <h1>Nouvelles pistes cyclables post COVID à {label}</h1>
+         <h1>
+            {languages.title[CURRENT_LANGUAGE](label)}
+         </h1>
       </header>
    );
 };
