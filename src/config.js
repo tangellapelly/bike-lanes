@@ -71,9 +71,15 @@ export const locations = {
       country: 'Allemagne',
       label: 'Berlin',
       attribution: (
-         <a href="https://fbinter.stadt-berlin.de/fb/index.jsp">
-            Geoportal Berlin
-         </a>
+         <>
+            <a href="https://fbinter.stadt-berlin.de/fb/index.jsp">
+               Geoportal Berlin
+            </a>{' '}
+            &{' '}
+            <a href="https://www.infravelo.de/temporaere-radfahrstreifen/">
+               Infravelo
+            </a>
+         </>
       ),
       measurements: measurements.berlin,
       population: 3769495,
@@ -83,7 +89,14 @@ export const locations = {
       coordinates: { lat: 50.110924, lng: 8.682127 },
       country: 'Allemagne',
       label: 'Frankfurt',
-      attribution: 'HERE',
+      attribution: (
+         <>
+            HERE &{' '}
+            <a href="https://www.adfc-frankfurt.de/Archiv/Nachrichten/00444.html">
+               ADFC
+            </a>
+         </>
+      ),
       measurements: measurements.frankfurt,
       population: 753056,
       countryCode: 'deu',
@@ -92,7 +105,14 @@ export const locations = {
       coordinates: { lat: 48.783333, lng: 9.183333 },
       country: 'Allemagne',
       label: 'Stuttgart',
-      attribution: 'HERE',
+      attribution: (
+         <>
+            HERE &{' '}
+            <a href="https://www.swr.de/swraktuell/baden-wuerttemberg/stuttgart/neue-radwege-pop-up-bike-lanes-stuttgart-104.html">
+               SWR
+            </a>
+         </>
+      ),
       measurements: measurements.stuttgart,
       population: 634830,
       countryCode: 'deu',
@@ -101,7 +121,14 @@ export const locations = {
       coordinates: { lat: 53.551086, lng: 9.993682 },
       country: 'Allemagne',
       label: 'Hamburg',
-      attribution: 'HERE',
+      attribution: (
+         <>
+            HERE &{' '}
+            <a href="https://www.24hamburg.de/hamburg/hamburg-pop-up-radweg-adfc-alster-protest-notwehr-verkehr-coronavirus-sars-cov-2-90000966.html">
+               24Hamburg
+            </a>
+         </>
+      ),
       measurements: measurements.hamburg,
       population: 1899160,
       countryCode: 'deu',
@@ -111,9 +138,19 @@ export const locations = {
       country: 'Italie',
       label: 'Milan',
       attribution: (
-         <a href="https://dati.comune.milano.it/dataset/ds60_infogeo_piste_ciclabili_localizzazione_">
-            Comune di Milano Open Data Portal
-         </a>
+         <>
+            <a href="https://www.milanoweekend.it/articoli/piste-ciclabili-a-milano/">
+               Milano Weekend
+            </a>
+            ,{' '}
+            <a href="https://www.comune.milano.it/documents/20126/6143581/Progetto+ciclabilit%C3%A0+2020.pdf/85dcdaf8-b9e2-b474-495e-fd9e64f98bdb?t=1587745244897">
+               Comune di Milano
+            </a>{' '}
+            &{' '}
+            <a href="https://dati.comune.milano.it/dataset/ds60_infogeo_piste_ciclabili_localizzazione_">
+               Comune di Milano Open Data Portal
+            </a>
+         </>
       ),
       measurements: measurements.milan,
       population: 1404431,
@@ -132,7 +169,11 @@ export const locations = {
       coordinates: { lat: 48.137154, lng: 11.576124 },
       country: 'Allemagne',
       label: 'Munich',
-      attribution: 'Munich',
+      attribution: (
+         <a href="https://www.sueddeutsche.de/muenchen/muenchen-corona-pop-up-radwege-1.4915026">
+            SZ
+         </a>
+      ),
       measurements: measurements.munich,
       population: 1471508,
       countryCode: 'deu',

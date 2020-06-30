@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { colors, locations, maxMeasurement } from '../config';
+import { locations } from '../config';
 import formatPopulation from '../util/formatPopulation';
 import './CityTile.scss';
 
-const barLength = 90;
 const CityTile = ({ city, selected }) => {
    return (
       <Link
@@ -12,10 +11,11 @@ const CityTile = ({ city, selected }) => {
          className={`city-tile ${selected ? 'tile-selected' : ''}`}
       >
          <div className="radio-col">
-            <input type="radio" checked={selected} />
+            <input readOnly type="radio" checked={selected} />
          </div>
          <div className="lead flag-cell">
             <img
+               alt={locations[city].countryCode + ' flag'}
                src={`https://restcountries.eu/data/${locations[city].countryCode}.svg`}
             />
             <div>{locations[city].label}</div>

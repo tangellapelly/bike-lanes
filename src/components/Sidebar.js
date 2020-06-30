@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Sidebar.scss';
 import { colors, locations } from '../config';
 import Header from './Header';

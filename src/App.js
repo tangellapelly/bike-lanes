@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from 'react';
 //Style
 import './style/app.scss';
 import { mobileWidth } from './style/global.scss';
-// import rawData from './data/data.json';
 import Sidebar from './components/Sidebar';
 import MobileNav from './components/MobileNav';
 import Header from './components/Header';
@@ -12,10 +11,8 @@ import Header from './components/Header';
 //Components
 import Map from './components/Map';
 import { ReactCompareSlider } from 'react-compare-slider';
-import { locations, platform, spaces } from './config';
+import { locations } from './config';
 
-const { H } = window;
-// const data = rawData.features;
 
 function App(props) {
    const { city = 'paris' } = props.match.params;
@@ -47,7 +44,6 @@ function App(props) {
       locations[city].label +
       ' - HERE Developer';
 
-   // console.log(mobile, selectedTab);
 
    const slider = (
       <ReactCompareSlider
