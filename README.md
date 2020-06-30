@@ -4,6 +4,12 @@
 
 This is a React application. Prior to deployment, please follow these steps:
 
+### Language selection
+
+This map is available in three different languages: French, German, and English.
+
+To change the language, please modify `const CURRENT_LANGUAGE` inside of `config.js` to either: `en`, `fr`, or `de`.
+
 ### Open Graph URL
 
 The current public url is set to: https://app.developer.here.com/pop-up-bike-lanes-europe/. If this is not the deployment url, then this URL must be changed in the `public/index.html` file to reflect the new url. If this is not changed, then Open Graph / Social Media tags will not work.
