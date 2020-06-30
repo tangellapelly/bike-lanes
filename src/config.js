@@ -7,7 +7,7 @@ import measurements from './data/measurements.json';
  * Options: de, en
  */
 
-export const CURRENT_LANGUAGE = 'fr';
+export const CURRENT_LANGUAGE = 'en';
 
 /**
  * This is the HERE Developer API Key
