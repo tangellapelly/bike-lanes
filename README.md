@@ -72,3 +72,5 @@ yarn build
 ```
 
 This will create a production version of the application which can then be hosted like a static site.
+
+**Note**: please make sure the URL routing is working properly. Clicking on the radio buttons for a city will modify the url.
