@@ -7,7 +7,7 @@ import measurements from './data/measurements.json';
  * Options: de, en
  */
 
-export const CURRENT_LANGUAGE = 'fr';
+export const CURRENT_LANGUAGE = 'en';
 
 /**
  * This is the HERE Developer API Key
@@ -251,7 +251,7 @@ export const languages = {
          <>
             <p>
                Kommunale Behörden in ganz Europa fördern Radfahren als sicheres
-               Verkehrsmittel im Zeitalter von Corona und zur Verringerung von
+               Verkehrsmittel in Zeiten von Corona und zur Verringerung von
                Luftverschmutzung.
             </p>
             <p>
