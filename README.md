@@ -1,5 +1,7 @@
 # France Bike Lanes Map
 
+![screenshot](./screenshot.png)
+
 ## Deployment steps
 
 This is a React application. Prior to deployment, please follow these steps:
