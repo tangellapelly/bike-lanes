@@ -66,8 +66,9 @@ const Sidebar = ({ city, header }) => {
          <Section className="attribution">
             <div>
                {languages.dataAttributionLabel[CURRENT_LANGUAGE]()}{' '}
-               {locations[city].attribution}{' '}
-               {CURRENT_LANGUAGE === 'de' && ' bereitgestellt.'}
+               {locations[city].attribution}
+               {CURRENT_LANGUAGE === 'de' && ' bereitgestellt'}.{' '}
+               {languages.populationFinePrintLabel[CURRENT_LANGUAGE]()}
             </div>
             <div>{languages.finePrintLabel[CURRENT_LANGUAGE]()}</div>
          </Section>

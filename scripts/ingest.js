@@ -11,6 +11,7 @@ const cities = [
    'nantes',
    'paris',
    'stuttgart',
+   'london',
 ];
 
 const measurements = {};

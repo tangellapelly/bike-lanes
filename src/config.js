@@ -4,7 +4,7 @@ import measurements from './data/measurements.json';
 
 /**
  * This is the language key
- * Options: de, en
+ * Options: de, en, fr
  */
 
 export const CURRENT_LANGUAGE = 'fr';
@@ -27,8 +27,8 @@ export const token = 'AFhj08d4S16jImglDHNMagA';
  * TODO: These must be changed, see README file for more info.
  */
 export const spaces = {
-   normal: 'Sa0FZdYc',
-   covid: 'amsOcYNf',
+   normal: 'etBXz9yt',
+   covid: 'HfIm5QZk',
 };
 
 export const platform = new window.H.service.Platform({ apikey });
@@ -214,6 +214,18 @@ export const locations = {
       population: 1471508,
       countryCode: 'deu',
    },
+   london: {
+      coordinates: { lat: 51.509865, lng: -0.118092 },
+      labels: {
+         fr: 'Londres',
+         en: 'London',
+         de: 'London',
+      },
+      attribution: 'HERE',
+      measurements: measurements.london,
+      population: 8908081,
+      countryCode: 'gbr',
+   },
 };
 
 export const languages = {
@@ -332,6 +344,11 @@ export const languages = {
          'Die auf den auf dieser Website aufgeführten Radwegen zurückgelegte Entfernung entspricht möglicherweise nicht genau den Spezifikationen einiger Städte.',
       en: () =>
          'The distance covered by bicycle lanes listed on this site may not correspond exactly to the specifications of certain cities.',
+   },
+   populationFinePrintLabel: {
+      fr: () => 'Données démographiques de Wikipedia.',
+      en: () => 'Population data from Wikipedia.',
+      de: () => 'Bevölkerungsdaten aus Wikipedia.',
    },
    mapDescriptorNormalLabel: {
       fr: () => 'Pistes existantes avant COVID-19',
